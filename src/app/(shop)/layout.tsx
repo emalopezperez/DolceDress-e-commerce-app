@@ -9,7 +9,7 @@ export default function ShopLayout({
   return (
     <main className=" ">
       <Nav />
-      <Container>{children}</Container>
+      {children}
     </main>
   );
 }

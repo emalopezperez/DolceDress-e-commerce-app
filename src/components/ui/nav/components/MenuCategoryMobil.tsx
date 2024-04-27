@@ -1,10 +1,7 @@
 import { Disclosure } from "@headlessui/react";
-import { usePathname } from "next/navigation";
 import { PropsMenuItems } from "../interfaces/nav";
 
-const MenuCategoryMobil = ({ menuItems }: PropsMenuItems) => {
-  const currentPath = usePathname();
-
+const MenuCategoryMobil = ({ menuItems, currentPath }: PropsMenuItems) => {
   return (
     <div className="space-y-1 px-2 pb-3 pt-2">
       {menuItems.map((item) => (
