@@ -1,10 +1,7 @@
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { PropsMenuItems } from "../interfaces/nav";
 
-const MenuCategory = ({ menuItems }: PropsMenuItems) => {
-  const currentPath = usePathname();
-
+const MenuCategory = ({ menuItems, currentPath, color }: PropsMenuItems) => {
   return (
     <div className="flex items-center">
       <div className="hidden sm:ml-6 sm:block">
@@ -14,8 +11,12 @@ const MenuCategory = ({ menuItems }: PropsMenuItems) => {
               key={item.title}
               href={item.path}
               className={`
-            w-full px-2 inline-flex space-x-2 items-center  py-3 hover:bg-white/5 transition ease-linear duration-150  text-sm
-            ${currentPath === item.path ? "bg-gray-100" : ""}
+            w-full px-2 inline-flex space-x-2 items-center  py-3 hover:bg-white/5 transition ease-linear duration-150  text-sm ${
+              currentPath === "/" && color === false
+                ? "text-white"
+                : "text-gray-700"
+            }
+            ${currentPath === item.path ? "bg-gray-100 text-black" : ""}
           `}>
               {item.title}
             </Link>

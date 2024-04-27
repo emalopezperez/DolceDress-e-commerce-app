@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={titleFont.className}>
-        <main className="mt-24">{children}</main>
+        <main className="">{children}</main>
       </body>
     </html>
   );
