@@ -1,5 +1,5 @@
-import Container from "@/components/ui/container/Container";
 import Nav from "@/components/ui/nav/Nav";
+import SidebarMenu from "@/components/ui/sidebarMenu/SidebarMenu";
 
 export default function ShopLayout({
   children,
@@ -9,6 +9,7 @@ export default function ShopLayout({
   return (
     <main className=" ">
       <Nav />
+      <SidebarMenu data="carrito de compras" title="Carrito de compras" />
       {children}
     </main>
   );
