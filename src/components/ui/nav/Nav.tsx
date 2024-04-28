@@ -8,6 +8,7 @@ import MenuCategory from "./components/MenuCategory";
 import Profile from "./components/Profile";
 import MenuMobil from "./components/MenuMobil";
 import { AlignJustify, X, ShoppingCart, Search } from "lucide-react";
+import { useUIStore } from "@/store/ui/ui-store";
 
 const menuItems = [
   {
@@ -26,6 +27,7 @@ const menuItems = [
 
 export default function Header() {
   const currentPath = usePathname();
+  const openSideMenu = useUIStore((state) => state.openSideMenu);
 
   const [color, setColor] = useState(false);
 
@@ -72,19 +74,19 @@ export default function Header() {
                   }>
                   <Search className="w-5 h-5" />
                 </Link>
-                <Link href="/cart">
+                <button onClick={openSideMenu}>
                   <div
                     className={
                       currentPath === "/" && color === false
-                        ? "text-white relative"
-                        : "text-gray-700 relative"
+                        ? "text-white relative hover:text-gray-500"
+                        : "text-gray-700 relative hover:text-gray-400"
                     }>
                     <ShoppingCart className=" w-5 h-5 " />
                     <span className="absolute -top-3 text-[10px] ml-2 bg-red-900 rounded-full px-1 text-white">
                       3
                     </span>
                   </div>
-                </Link>
+                </button>
                 <Profile />
               </div>
 

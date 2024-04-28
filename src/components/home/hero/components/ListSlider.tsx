@@ -24,7 +24,7 @@ const ListSlider = ({ slides }: PropsSlider) => {
       <Swiper
         loop={true}
         slidesPerView={1}
-        spaceBetween={10}
+        spaceBetween={0}
         pagination={{
           clickable: true,
         }}
@@ -35,7 +35,7 @@ const ListSlider = ({ slides }: PropsSlider) => {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="cursor-pointer ">
+        className="cursor-pointer fade-in">
         {slides.map(({ image, title, parraf, id }) => (
           <SwiperSlide key={id} className="relative isolate overflow-hidden ">
             <img
