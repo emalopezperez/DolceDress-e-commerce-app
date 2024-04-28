@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const PromoSection = () => {
   return (
@@ -6,9 +7,12 @@ const PromoSection = () => {
       <div className="  w-full h-full  flex justify-between gap-4 flex-col lg:flex-row">
         <div className=" w-full flex flex-col gap-4 h-[100%] ">
           <div className=" w-full relative">
-            <img
+            <Image
+              alt="Moda"
               src="https://hongotheme.myshopify.com/cdn/shop/files/demo-home-fashion-01.jpg?v=1679034110&width=940"
               className="w-full h-full object-cover"
+              width={600}
+              height={600}
             />
 
             <div className=" absolute top-5 md:top-16 right-0 md:w-[33%] w-[38%] h-[58%] ">
@@ -29,9 +33,12 @@ const PromoSection = () => {
           </div>
           <div className="w-full flex flex-row  gap-4 h-full lg:h-[46%]">
             <div className=" w-full relative">
-              <img
+              <Image
+                alt="Moda"
                 src="https://hongotheme.myshopify.com/cdn/shop/files/demo-home-fashion-03.jpg?v=1672923495"
                 className="w-full h-full object-cover"
+                width={600}
+                height={600}
               />
 
               <div className=" absolute top-8 md:top-16 left-3 md:left-5 w-[70%] h-[75%] ">
@@ -51,18 +58,24 @@ const PromoSection = () => {
               </div>
             </div>
             <div className=" w-full ">
-              <img
+              <Image
+                alt="Moda"
                 src="https://hongotheme.myshopify.com/cdn/shop/files/demo-home-fashion-04.jpg?v=1660279624&width=535"
                 className="w-full h-full object-cover"
+                width={600}
+                height={600}
               />
             </div>
           </div>
         </div>
 
         <div className=" w-full lg:h-full h-[50%] relative">
-          <img
+          <Image
+            alt="Moda"
             src="https://hongotheme.myshopify.com/cdn/shop/files/demo-home-fashion-02.jpg?v=1679034111&width=940"
             className="w-full h-full object-cover"
+            width={600}
+            height={600}
           />
 
           <div className=" absolute top-5 md:top-[30%] right-0 md:w-[33%] w-[38%] h-[68%] ">

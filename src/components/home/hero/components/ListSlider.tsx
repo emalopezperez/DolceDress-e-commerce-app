@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -38,9 +38,12 @@ const ListSlider = ({ slides }: PropsSlider) => {
         className="cursor-pointer fade-in">
         {slides.map(({ image, title, parraf, id }) => (
           <SwiperSlide key={id} className="relative isolate overflow-hidden ">
-            <img
+            <Image
               src={image}
               alt={title}
+              width={1000}
+              height={1000}
+              priority={true}
               className="absolute inset-0 -z-10 h-full object-cover w-full"
             />
 
