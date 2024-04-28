@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const PromoSection = () => {
   return (
-    <section className=" h-screen w-full  py-4">
+    <section className=" w-full  py-4">
       <div className="  w-full h-full  flex justify-between gap-4 flex-col lg:flex-row">
         <div className=" w-full flex flex-col gap-4 h-[100%] ">
           <div className=" w-full relative">
