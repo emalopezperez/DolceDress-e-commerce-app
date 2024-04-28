@@ -16,7 +16,7 @@ export default function CategoryPage({ params }: PropsCategory) {
   }
 
   return (
-    <div className="">
+    <div className="mt-24">
       <Container>
         <Title name={id} subtitle="Nuestros productos" />
         <h1>Category {id}</h1>
