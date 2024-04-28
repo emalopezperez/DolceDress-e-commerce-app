@@ -1,7 +1,8 @@
 "use client";
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { X } from "lucide-react";
+import { useUIStore } from "@/store/ui/ui-store";
 
 interface PropsSidebar {
   data: any;
@@ -9,11 +10,12 @@ interface PropsSidebar {
 }
 
 export default function SidebarMenu({ data, title }: PropsSidebar) {
-  const [open, setOpen] = useState(true);
+  const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen);
+  const closeMenu = useUIStore((state) => state.closeSideMenu);
 
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+    <Transition.Root show={isSideMenuOpen} as={Fragment}>
+      <Dialog as="div" className="relative z-10" onClose={closeMenu}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
@@ -49,7 +51,7 @@ export default function SidebarMenu({ data, title }: PropsSidebar) {
                       <button
                         type="button"
                         className="relative rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                        onClick={() => setOpen(false)}>
+                        onClick={closeMenu}>
                         <span className="absolute -inset-2.5" />
                         <span className="sr-only">Close panel</span>
                         <X className="h-6 w-6" aria-hidden="true" />
