@@ -11,13 +11,13 @@ const PromoSection = () => {
               alt="Moda"
               src="https://hongotheme.myshopify.com/cdn/shop/files/demo-home-fashion-01.jpg?v=1679034110&width=940"
               className="w-full h-full object-cover"
-              width={600}
-              height={600}
+              width={400}
+              height={400}
             />
 
             <div className=" absolute top-5 md:top-16 right-0 md:w-[33%] w-[38%] h-[58%] ">
               <div className="flex flex-col gap-6 h-full">
-                <h5 className="text-gray-600 font-bold">Descuentos de 50%</h5>
+                <h2 className="text-gray-600 font-bold">Descuentos de 50%</h2>
                 <h3 className="md:text-4xl text-2xl">Summer Collection</h3>
                 <Link
                   href="/category/men"
@@ -43,7 +43,7 @@ const PromoSection = () => {
 
               <div className=" absolute top-8 md:top-16 left-3 md:left-5 w-[70%] h-[75%] ">
                 <div className="flex flex-col gap-6 h-full">
-                  <h5 className="text-gray-600 font-bold">Fashion</h5>
+                  <h2 className="text-gray-600 font-bold">Fashion</h2>
                   <h3 className="md:text-4xl text-2xl">Mens Collection</h3>
                   <Link
                     href="/category/men"
@@ -62,8 +62,8 @@ const PromoSection = () => {
                 alt="Moda"
                 src="https://hongotheme.myshopify.com/cdn/shop/files/demo-home-fashion-04.jpg?v=1660279624&width=535"
                 className="w-full h-full object-cover"
-                width={600}
-                height={600}
+                width={400}
+                height={400}
               />
             </div>
           </div>
@@ -74,13 +74,13 @@ const PromoSection = () => {
             alt="Moda"
             src="https://hongotheme.myshopify.com/cdn/shop/files/demo-home-fashion-02.jpg?v=1679034111&width=940"
             className="w-full h-full object-cover"
-            width={600}
-            height={600}
+            width={400}
+            height={400}
           />
 
           <div className=" absolute top-5 md:top-[30%] right-0 md:w-[33%] w-[38%] h-[68%] ">
             <div className="flex flex-col gap-6 h-full">
-              <h5 className="text-gray-600 font-bold">Descuentos de 50%</h5>
+              <h2 className="text-gray-600 font-bold">Descuentos de 50%</h2>
               <h3 className="md:text-4xl text-2xl">Women Collection</h3>
               <Link
                 href="/category/women"

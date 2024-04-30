@@ -13,15 +13,19 @@ import { useUIStore } from "@/store/ui/ui-store";
 const menuItems = [
   {
     path: "/",
-    title: "Home",
+    title: "Inicio",
   },
   {
     path: "/category/men",
-    title: "Hombre",
+    title: "Hombres",
   },
   {
     path: "/category/women",
-    title: "Mujer",
+    title: "Mujeres",
+  },
+  {
+    path: "/category/accessories",
+    title: "Accesorios",
   },
 ];
 
@@ -107,7 +111,11 @@ export default function Header() {
             </div>
           </div>
 
-          <MenuMobil menuItems={menuItems} currentPath={currentPath} />
+          <MenuMobil
+            menuItems={menuItems}
+            currentPath={currentPath}
+            openSideMenu={openSideMenu}
+          />
         </div>
       )}
     </Disclosure>

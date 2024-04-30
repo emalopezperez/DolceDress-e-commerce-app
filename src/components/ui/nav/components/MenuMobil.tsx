@@ -4,12 +4,15 @@ import MenuCategoryMobil from "./MenuCategoryMobil";
 import { PropsMenuItems } from "../interfaces/nav";
 import { Search, ShoppingCart } from "lucide-react";
 
-const MenuMobil = ({ menuItems, currentPath }: PropsMenuItems) => {
+const MenuMobil = ({
+  menuItems,
+  currentPath,
+  openSideMenu,
+}: PropsMenuItems) => {
   return (
     <>
       <Disclosure.Panel className="sm:hidden bg-black">
         <MenuCategoryMobil menuItems={menuItems} currentPath={currentPath} />
-
         <div className="border-t border-gray-700 pb-3 pt-4">
           <div className="flex items-center px-5">
             <div className="flex-shrink-0">
@@ -50,14 +53,14 @@ const MenuMobil = ({ menuItems, currentPath }: PropsMenuItems) => {
             <Link href="/search" className="text-white">
               <Search className="w-5 h-5" />
             </Link>
-            <Link href="/cart">
+            <button onClick={openSideMenu}>
               <div className="text-white relative">
                 <ShoppingCart className=" w-5 h-5 " />
                 <span className="absolute -top-3 text-[10px] ml-2 bg-red-900 rounded-full px-1 text-white">
                   3
                 </span>
               </div>
-            </Link>
+            </button>
           </div>
         </div>
       </Disclosure.Panel>

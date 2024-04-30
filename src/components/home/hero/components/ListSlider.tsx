@@ -41,9 +41,9 @@ const ListSlider = ({ slides }: PropsSlider) => {
             <Image
               src={image}
               alt={title}
-              width={1000}
-              height={1000}
-              priority={true}
+              width={1200}
+              height={1200}
+              priority
               className="absolute inset-0 -z-10 h-full object-cover w-full"
             />
 
