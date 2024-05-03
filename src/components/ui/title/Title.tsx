@@ -15,7 +15,6 @@ const Title = ({ name, subtitle, title }: PropsTitle) => {
               : name === "women"
               ? "Mujeres"
               : name === "accessories" && "Accesorios"}
-            {!name && title}
           </h1>
           {subtitle && (
             <h3 className="mt-4 text-sm text-gray-500">{subtitle}</h3>

@@ -13,7 +13,12 @@ interface PropsCategory {
 export default function CategoryPage({ params }: PropsCategory) {
   const { id } = params;
 
-  if (id !== "men" && id !== "women" && id !== "accessories") {
+  if (
+    id !== "tienda" &&
+    id !== "men" &&
+    id !== "women" &&
+    id !== "accessories"
+  ) {
     notFound();
   }
 
