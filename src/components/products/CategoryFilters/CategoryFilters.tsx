@@ -1,6 +1,6 @@
 "use client";
-import { Dialog, Disclosure } from "@headlessui/react";
-import { MinusIcon, PlusIcon, X } from "lucide-react";
+import { Disclosure } from "@headlessui/react";
+import { MinusIcon, PlusIcon } from "lucide-react";
 import { Product } from "@/interfaces/product.interface";
 import ProductsGrid from "../productsGrid/ProductsGrid";
 
@@ -110,7 +110,7 @@ export default function CategoryFilter({ products }: PropsCategoryFilter) {
                     <Disclosure.Panel className="pt-6">
                       <div className="space-y-4">
                         {section.options.map((option, optionIdx) => (
-                          <div key={option.value} className="flex items-center">
+                          <div key={optionIdx} className="flex items-center">
                             <input
                               id={`filter-${section.id}-${optionIdx}`}
                               name={`${section.id}[]`}

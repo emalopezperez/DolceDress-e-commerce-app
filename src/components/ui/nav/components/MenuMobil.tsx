@@ -8,11 +8,16 @@ const MenuMobil = ({
   menuItems,
   currentPath,
   openSideMenu,
+  subMenuCategorys,
 }: PropsMenuItems) => {
   return (
     <>
       <Disclosure.Panel className="sm:hidden bg-black">
-        <MenuCategoryMobil menuItems={menuItems} currentPath={currentPath} />
+        <MenuCategoryMobil
+          menuItems={menuItems}
+          currentPath={currentPath}
+          subMenuCategorys={subMenuCategorys}
+        />
         <div className="border-t border-gray-700 pb-3 pt-4">
           <div className="flex items-center px-5">
             <div className="flex-shrink-0">

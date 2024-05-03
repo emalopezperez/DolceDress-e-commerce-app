@@ -11,22 +11,38 @@ import { AlignJustify, X, ShoppingCart, Search } from "lucide-react";
 import { useUIStore } from "@/store/ui/ui-store";
 
 const menuItems = [
+  { id: 1, path: "/", title: "Inicio" },
   {
-    path: "/",
-    title: "Inicio",
+    id: 6,
+    path: "/products",
+    title: "Tienda",
+    subMenu: true,
+  },
+
+  {
+    id: 2,
+    path: "/contacto",
+    title: "Contacto",
   },
   {
+    id: 3,
+    path: "/about",
+    title: "Nosotros",
+  },
+];
+
+const subMenuCategorys = [
+  {
+    id: 1,
     path: "/category/men",
     title: "Hombres",
   },
   {
+    id: 2,
     path: "/category/women",
     title: "Mujeres",
   },
-  {
-    path: "/category/accessories",
-    title: "Accesorios",
-  },
+  { id: 3, path: "/category/accessories", title: "Accesorios", subMenu: true },
 ];
 
 export default function Header() {
@@ -54,7 +70,7 @@ export default function Header() {
     <Disclosure as="nav" className="">
       {({ open }) => (
         <div
-          className={`w-full fixed top-0 z-10 transition duration-400 ease-in-out  ${
+          className={`w-full fixed top-0 z-10 transition duration-600 ease-in-out  ${
             color ? "bg-gray-50  " : "bg-transparent"
           }`}>
           <div className=" mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
@@ -66,6 +82,7 @@ export default function Header() {
                 menuItems={menuItems}
                 currentPath={currentPath}
                 color={color}
+                subMenuCategorys={subMenuCategorys}
               />
 
               <div className="gap-6 items-center hidden  sm:flex">
@@ -115,6 +132,7 @@ export default function Header() {
             menuItems={menuItems}
             currentPath={currentPath}
             openSideMenu={openSideMenu}
+            subMenuCategorys={subMenuCategorys}
           />
         </div>
       )}
