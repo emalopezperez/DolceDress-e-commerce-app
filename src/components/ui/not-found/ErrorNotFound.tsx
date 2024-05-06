@@ -1,6 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-export default function ErrorNotFound() {
+
+interface PropsNotFound {
+  message: string;
+}
+
+export default function ErrorNotFound({ message }: PropsNotFound) {
   return (
     <>
       <main className="relative isolate h-screen flex items-center">
@@ -14,7 +19,7 @@ export default function ErrorNotFound() {
         <div className="mx-auto max-w-7xl px-6 py-32 text-center sm:py-40 lg:px-8">
           <p className="text-base font-semibold leading-8 text-white">404</p>
           <h1 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">
-            Page not found
+            {message}
           </h1>
           <p className="mt-4 text-base text-white/70 sm:mt-6">
             Sorry, we couldn’t find the page you’re looking for.

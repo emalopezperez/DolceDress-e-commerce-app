@@ -14,7 +14,19 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
+
+    animation: {
+      "text-gradient": "text-gradient 2.8s linear infinite",
+    },
+    keyframes: {
+      "text-gradient": {
+        to: {
+          backgroundPosition: "200% center",
+        },
+      },
+    },
   },
+
   plugins: [],
 };
 export default config;

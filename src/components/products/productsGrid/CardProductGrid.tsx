@@ -20,7 +20,7 @@ const CardProductGrid = ({ product }: PropsCardProduct) => {
           width={500}
           height={500}
           alt={product.title}
-          className="w-full object-cover rounded"
+          className="w-full object-cover rounded transition-all duration-400 ease-in-out"
           onMouseEnter={() => setDisplayImage(product.images[1])}
           onMouseLeave={() => setDisplayImage(product.images[0])}
         />

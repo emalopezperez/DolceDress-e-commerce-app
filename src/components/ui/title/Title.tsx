@@ -1,26 +1,23 @@
 interface PropsTitle {
   name?: string;
-  title?: string;
   subtitle?: string;
 }
 
-const Title = ({ name, subtitle, title }: PropsTitle) => {
+const Title = ({ name, subtitle }: PropsTitle) => {
   return (
-    <div className="mt-2 ">
-      <div className="mx-auto ">
-        <div className="">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-3xl antialiased">
-            {name === "men"
-              ? "Hombres"
-              : name === "women"
-              ? "Mujeres"
-              : name === "accessories" && "Accesorios"}
-          </h1>
-          {subtitle && (
-            <h3 className="mt-4 text-sm text-gray-500">{subtitle}</h3>
-          )}
-        </div>
-      </div>
+    <div className="">
+      <h1 className="md:text-4xl font-bold tracking-tight-4 text-gray-900 text-2xl antialiased">
+        {name === "shirts"
+          ? "Remeras"
+          : name === "jackets"
+          ? "Camperas"
+          : name === "pants"
+          ? "Pantalones"
+          : name === "accessories"
+          ? "Accessorios"
+          : name}
+      </h1>
+      {subtitle && <h3 className="mt-4 text-sm text-gray-500">{subtitle}</h3>}
     </div>
   );
 };

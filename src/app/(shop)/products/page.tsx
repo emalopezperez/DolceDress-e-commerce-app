@@ -9,7 +9,7 @@ export default function Products() {
   return (
     <div className="mt-24">
       <Container>
-        <Title name="Tienda" subtitle="Nuestros productos" />
+        <Title name="Tienda" subtitle="Todos nuestros productos" />
         <CategoryFilters products={products} />
       </Container>
     </div>
