@@ -9,6 +9,7 @@ import Profile from "./components/Profile";
 import MenuMobil from "./components/MenuMobil";
 import { AlignJustify, X, ShoppingCart, Search } from "lucide-react";
 import { useUIStore } from "@/store/ui/ui-store";
+import { SubMenu } from "./interfaces/nav";
 
 const menuItems = [
   { id: 1, path: "/", title: "Inicio" },
@@ -31,28 +32,18 @@ const menuItems = [
   },
 ];
 
-const subMenuCategorys = [
-  {
-    id: 1,
-    path: "/category/men",
-    title: "Hombres",
-  },
-  {
-    id: 2,
-    path: "/category/women",
-    title: "Mujeres",
-  },
-  { id: 3, path: "/category/accessories", title: "Accesorios", subMenu: true },
-];
+interface PropsNav {
+  categoryProducts: SubMenu[];
+}
 
-export default function Header() {
+export default function Header({ categoryProducts }: PropsNav) {
   const currentPath = usePathname();
   const openSideMenu = useUIStore((state) => state.openSideMenu);
 
   const [color, setColor] = useState(false);
 
   const changeColor = () => {
-    if (window.scrollY > 5) {
+    if (window.scrollY > 1) {
       setColor(true);
     } else {
       setColor(false);
@@ -70,19 +61,19 @@ export default function Header() {
     <Disclosure as="nav" className="">
       {({ open }) => (
         <div
-          className={`w-full fixed top-0 z-10 transition duration-600 ease-in-out  ${
-            color ? "bg-gray-50  " : "bg-transparent"
+          className={`w-full fixed top-0 z-50 transition duration-300 ease-in-out  ${
+            color ? "bg-gray-100 " : "bg-transparent"
           }`}>
-          <div className=" mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
+          <div className=" mx-auto max-w-8xl px-4 sm:px-6 lg:px-8 ">
             <div className="flex h-16 items-center justify-between">
-              <div className="flex-shrink-0 ">
+              <div className="flex-shrink-0">
                 <Logo />
               </div>
               <MenuCategory
                 menuItems={menuItems}
                 currentPath={currentPath}
                 color={color}
-                subMenuCategorys={subMenuCategorys}
+                categoryProducts={categoryProducts}
               />
 
               <div className="gap-6 items-center hidden  sm:flex">
@@ -132,7 +123,7 @@ export default function Header() {
             menuItems={menuItems}
             currentPath={currentPath}
             openSideMenu={openSideMenu}
-            subMenuCategorys={subMenuCategorys}
+            categoryProducts={categoryProducts}
           />
         </div>
       )}

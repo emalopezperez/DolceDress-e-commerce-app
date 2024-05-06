@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 const MenuCategoryMobil = ({
   menuItems,
   currentPath,
-  subMenuCategorys,
+  categoryProducts,
 }: PropsMenuItems) => {
   const [openSubMenu, setOpenSubMenu] = useState(false);
   return (
@@ -35,7 +35,7 @@ const MenuCategoryMobil = ({
               </div>
 
               {openSubMenu &&
-                subMenuCategorys.map((item) => (
+                categoryProducts.map((item) => (
                   <Disclosure.Button
                     as="a"
                     href={item.path}

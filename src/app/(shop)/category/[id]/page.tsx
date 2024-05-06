@@ -14,16 +14,16 @@ export default function CategoryPage({ params }: PropsCategory) {
   const { id } = params;
 
   if (
-    id !== "tienda" &&
-    id !== "men" &&
-    id !== "women" &&
+    id !== "shirts" &&
+    id !== "pants" &&
+    id !== "jackets" &&
     id !== "accessories"
   ) {
     notFound();
   }
 
   const products = initialData.products.filter(
-    (product) => product.gender === id
+    (product) => product.type === id
   );
 
   return (
