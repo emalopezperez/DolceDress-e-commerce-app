@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Product } from "../../../interfaces/product.interface";
 import Image from "next/image";
+import { placeholderImage } from "@/helpers/placeholderImage";
 
 interface PropsCardProduct {
   product: Product;
@@ -19,6 +20,8 @@ const CardProductGrid = ({ product }: PropsCardProduct) => {
           src={`/products/${displayImage}`}
           width={500}
           height={500}
+          placeholder="blur"
+          blurDataURL={placeholderImage}
           alt={product.title}
           className="w-full object-cover rounded transition-all duration-400 ease-in-out"
           onMouseEnter={() => setDisplayImage(product.images[1])}

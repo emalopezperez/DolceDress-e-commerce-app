@@ -11,6 +11,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { useState } from "react";
+import { placeholderImage } from "@/helpers/placeholderImage";
 
 interface PropsSliderProduct {
   images: string[];
@@ -34,13 +35,14 @@ const SliderProduct = ({ images, title }: PropsSliderProduct) => {
         className="mySwiper2">
         {images.map((image) => (
           <SwiperSlide key={image}>
-            <div className="max-h-[610px]">
+            <div className=" h-[380px] md:h-[610px] w-full relative">
               <Image
-                width={900}
-                height={900}
+                fill
                 src={`/products/${image}`}
                 alt={title}
                 className=" object-cover cursor-pointer h-full w-full"
+                placeholder="blur"
+                blurDataURL={placeholderImage}
               />
             </div>
           </SwiperSlide>

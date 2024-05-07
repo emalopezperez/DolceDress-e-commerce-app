@@ -7,6 +7,7 @@ import "./listSlider.css";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
+import { placeholderImage } from "@/helpers/placeholderImage";
 
 interface PropsSlider {
   slides: Slides[];
@@ -50,8 +51,10 @@ const ListSlider = ({ slides }: PropsSlider) => {
             <Image
               src={image}
               alt={title}
-              width={1200}
-              height={1200}
+              width={900}
+              height={900}
+              placeholder="blur"
+              blurDataURL={placeholderImage}
               priority
               className="absolute inset-0 -z-10 h-full object-cover w-full"
             />

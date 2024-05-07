@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { placeholderImage } from "@/helpers/placeholderImage";
 
 const PromoSection = () => {
   return (
@@ -13,6 +14,8 @@ const PromoSection = () => {
               className="w-full h-full object-cover"
               width={400}
               height={400}
+              placeholder="blur"
+              blurDataURL={placeholderImage}
             />
 
             <div className=" absolute top-5 md:top-16 right-0 md:w-[33%] w-[38%] h-[58%] ">
@@ -39,6 +42,8 @@ const PromoSection = () => {
                 className="w-full h-full object-cover"
                 width={600}
                 height={600}
+                placeholder="blur"
+                blurDataURL={placeholderImage}
               />
 
               <div className=" absolute top-8 md:top-16 left-3 md:left-5 w-[70%] h-[75%] ">
@@ -64,6 +69,8 @@ const PromoSection = () => {
                 className="w-full h-full object-cover"
                 width={400}
                 height={400}
+                placeholder="blur"
+                blurDataURL={placeholderImage}
               />
             </div>
           </div>
@@ -76,6 +83,8 @@ const PromoSection = () => {
             className="w-full h-full object-cover"
             width={400}
             height={400}
+            placeholder="blur"
+            blurDataURL={placeholderImage}
           />
 
           <div className=" absolute top-5 md:top-[30%] right-0 md:w-[33%] w-[38%] h-[68%] ">
