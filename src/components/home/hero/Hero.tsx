@@ -1,4 +1,4 @@
-import ListSlider from "./components/ListSlider";
+import ListSlider from "./components/listSlider/ListSlider";
 
 const slides = [
   {

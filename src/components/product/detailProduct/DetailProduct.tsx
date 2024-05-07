@@ -26,10 +26,8 @@ const DetailProduct = ({ info }: PropsDetailProduct) => {
   const [quantity, setQuantity] = useState(1);
   const [like, setLike] = useState(false);
 
-  console.log(quantity);
-
   return (
-    <div className=" flex flex-col gap-8 px-2">
+    <div className=" flex flex-col gap-11 px-2">
       <div className="flex justify-between items-center flex-wrap gap-2">
         <Title name={info.title} />
         <LikeButton like={like} setLike={setLike} />
