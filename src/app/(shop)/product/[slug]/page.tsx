@@ -1,7 +1,8 @@
 import DetailProduct from "@/components/product/detailProduct/DetailProduct";
+import ReviewsProduct from "@/components/product/reviews/Reviews";
+import SliderProduct from "@/components/product/sliderProduct/SliderProduct";
 import Container from "@/components/ui/container/Container";
 import { initialData } from "@/seed/seed";
-import { StarIcon } from "lucide-react";
 import { notFound } from "next/navigation";
 
 interface PropsProduct {
@@ -22,13 +23,17 @@ export default function ProductPage({ params }: PropsProduct) {
   return (
     <div className="mt-24 mb-20 ">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 ">
-          <div className="col-span-1 md:col-span-2 ">SlidesShot</div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 ">
+          <div className="col-span-2  ">
+            <SliderProduct images={product.images} title={product.title} />
+          </div>
 
-          <div className="col-span-1  ">
+          <div className="col-span-2  ">
             <DetailProduct info={product} />
           </div>
         </div>
+
+        <ReviewsProduct />
       </Container>
     </div>
   );

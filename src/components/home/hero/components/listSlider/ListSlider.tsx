@@ -1,8 +1,12 @@
 "use client";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Navigation, FreeMode } from "swiper/modules";
+
+import "./listSlider.css";
 import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
 
 interface PropsSlider {
   slides: Slides[];
@@ -22,6 +26,11 @@ const ListSlider = ({ slides }: PropsSlider) => {
         "absolute inset-0 overflow-hidden after:absolute after:w-full after:h-full after:left-0 after:bottom-0 "
       }>
       <Swiper
+        style={
+          {
+            "--swiper-navigation-color": "#fff",
+          } as React.CSSProperties
+        }
         loop={true}
         slidesPerView={1}
         spaceBetween={0}
@@ -34,7 +43,7 @@ const ListSlider = ({ slides }: PropsSlider) => {
           disableOnInteraction: true,
         }}
         navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay, Navigation, FreeMode]}
         className="cursor-pointer fade-in">
         {slides.map(({ image, title, parraf, id }) => (
           <SwiperSlide key={id} className="relative isolate overflow-hidden ">
