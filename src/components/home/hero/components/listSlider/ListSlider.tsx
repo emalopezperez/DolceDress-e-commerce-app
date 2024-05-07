@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, FreeMode } from "swiper/modules";
 
-import "./listSlider.css";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
