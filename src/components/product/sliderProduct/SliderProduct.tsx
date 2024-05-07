@@ -40,7 +40,7 @@ const SliderProduct = ({ images, title }: PropsSliderProduct) => {
                 fill
                 src={`/products/${image}`}
                 alt={title}
-                className=" object-cover cursor-pointer h-full w-full"
+                className=" object-cover cursor-pointer h-full w-full shadow-md "
                 placeholder="blur"
                 blurDataURL={placeholderImage}
               />
@@ -64,7 +64,7 @@ const SliderProduct = ({ images, title }: PropsSliderProduct) => {
               height={300}
               src={`/products/${image}`}
               alt={title}
-              className=" object-cover  cursor-pointer"
+              className=" object-cover  cursor-pointer shadow-md "
             />
           </SwiperSlide>
         ))}

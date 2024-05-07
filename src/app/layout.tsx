@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./styles/globals.css";
 import { titleFont } from "@/config/fonts";
+import { ViewTransitions } from "next-view-transitions";
 
 export const metadata: Metadata = {
   title: "DolceDress",
@@ -13,10 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={titleFont.className}>
-        <main className="">{children}</main>
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="es">
+        <body className={titleFont.className}>
+          <main className="">{children}</main>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

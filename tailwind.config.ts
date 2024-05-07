@@ -16,9 +16,13 @@ const config: Config = {
     },
 
     animation: {
-      "text-gradient": "text-gradient 2.8s linear infinite",
+      "text-gradient": "text-gradient 3.5s linear infinite",
+      "flip": "flip 6s infinite steps(2, end)",
+    "rotate": "rotate 3s linear infinite both"
     },
+    
     keyframes: {
+      
       "text-gradient": {
         to: {
           backgroundPosition: "200% center",

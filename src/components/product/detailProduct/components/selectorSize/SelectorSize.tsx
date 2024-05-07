@@ -12,7 +12,7 @@ const SelectorSize = ({
   return (
     <button
       onClick={() => setSelectedSize(size)}
-      className={` p-1 px-3  rounded-md   ${
+      className={` p-1 px-3  rounded-md shadow-md  ${
         selectedSize === size
           ? "bg-gray-700 text-white  "
           : "border border-gray-400 hover:bg-gray-100 text-[#4a514c]"
