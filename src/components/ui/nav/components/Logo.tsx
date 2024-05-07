@@ -1,9 +1,9 @@
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 const Logo = () => {
   return (
     <Link href="/" className="">
-      <h2 className="text-3xl bg-gradient-to-r from-pink-500 to-teal-300 bg-clip-text text-transparent">
+      <h2 className=" text-4xl bg-gradient-to-r from-teal-900 via-slate-700 to-teal-500 bg-clip-text text-transparent">
         DolceDress
       </h2>
     </Link>

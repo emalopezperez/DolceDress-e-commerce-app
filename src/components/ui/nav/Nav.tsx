@@ -40,30 +40,10 @@ export default function Header({ categoryProducts }: PropsNav) {
   const currentPath = usePathname();
   const openSideMenu = useUIStore((state) => state.openSideMenu);
 
-  const [color, setColor] = useState(false);
-
-  const changeColor = () => {
-    if (window.scrollY > 1) {
-      setColor(true);
-    } else {
-      setColor(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", changeColor);
-    return () => {
-      window.removeEventListener("scroll", changeColor);
-    };
-  }, []);
-
   return (
     <Disclosure as="nav" className="">
       {({ open }) => (
-        <div
-          className={`w-full fixed top-0 z-50 transition duration-300 ease-in-out  ${
-            color ? "bg-gray-100 " : "bg-transparent"
-          }`}>
+        <div className="w-full fixed top-0 z-50 transition duration-300 ease-in-out bg-white shadow-md ">
           <div className=" mx-auto max-w-8xl px-4 sm:px-6 lg:px-8 ">
             <div className="flex h-16 items-center justify-between">
               <div className="flex-shrink-0">
@@ -72,27 +52,15 @@ export default function Header({ categoryProducts }: PropsNav) {
               <MenuCategory
                 menuItems={menuItems}
                 currentPath={currentPath}
-                color={color}
                 categoryProducts={categoryProducts}
               />
 
               <div className="gap-6 items-center hidden  sm:flex">
-                <Link
-                  href="/search"
-                  className={
-                    currentPath === "/" && color === false
-                      ? "text-white"
-                      : "text-gray-700"
-                  }>
+                <Link href="/search" className="text-gray-700">
                   <Search className="w-5 h-5" />
                 </Link>
                 <button onClick={openSideMenu}>
-                  <div
-                    className={
-                      currentPath === "/" && color === false
-                        ? "text-white relative hover:text-gray-500"
-                        : "text-gray-700 relative hover:text-gray-400"
-                    }>
+                  <div className="text-gray-700 relative hover:text-gray-400">
                     <ShoppingCart className=" w-5 h-5 " />
                     <span className="absolute -top-3 text-[10px] ml-2 bg-red-900 rounded-full px-1 text-white">
                       3

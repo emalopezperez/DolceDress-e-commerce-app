@@ -78,7 +78,7 @@ const DetailProduct = ({ info }: PropsDetailProduct) => {
       </div>
 
       <div className="flex items-center gap-2 ">
-        <button className="flex items-center justify-center rounded-md border border-transparent bg-[#373f39]/90  py-3 text-base font-medium text-white shadow-sm hover:bg-[#373f39]/80 w-full">
+        <button className="flex items-center justify-center rounded-md border border-transparent bg-[#373f39]/90  py-3 text-base font-medium text-white  hover:bg-[#373f39]/80 w-full shadow-md">
           Comprar
         </button>
 

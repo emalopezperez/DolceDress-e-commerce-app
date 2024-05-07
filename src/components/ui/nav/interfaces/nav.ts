@@ -2,7 +2,6 @@ export interface PropsMenuItems {
   menuItems: Menu[];
   categoryProducts: SubMenu[];
   currentPath?: string;
-  color?: boolean;
   openSideMenu?: () => void;
 }
 

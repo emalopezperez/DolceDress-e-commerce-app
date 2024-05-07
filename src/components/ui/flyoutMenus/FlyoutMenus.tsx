@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { ChevronDown } from "lucide-react";
 import { Fragment } from "react";
 import { SubMenu } from "../nav/interfaces/nav";
@@ -7,23 +7,14 @@ import { Popover, Transition } from "@headlessui/react";
 interface PropsFlyoutMenu {
   categoryProducts: SubMenu[];
   currentPath?: string;
-  color?: boolean;
 }
 
-const FlyoutMenus = ({
-  categoryProducts,
-  currentPath,
-  color,
-}: PropsFlyoutMenu) => {
+const FlyoutMenus = ({ categoryProducts, currentPath }: PropsFlyoutMenu) => {
   return (
     <Popover className="relative">
-      <Popover.Button className="mt-2 ">
+      <Popover.Button className="mt-2 px-1 ">
         <ChevronDown
-          className={
-            currentPath === "/" && color === false
-              ? "text-white relative hover:text-gray-500 w-4 h-4"
-              : "text-[#373f39] hover:text-[#373f39]/90 w-4 h-4"
-          }
+          className="text-[#373f39] hover:text-[#373f39]/90 w-4 h-4"
           aria-hidden="true"
         />
       </Popover.Button>
@@ -37,7 +28,7 @@ const FlyoutMenus = ({
                   key={item.title}
                   href={item.path}
                   className={`
-                    w-full px-2 inline-flex space-x-2 items-center text-black  py-3 hover:bg-white/5 transition ease-linear duration-150  text-sm  
+                    w-full px-2 inline-flex space-x-2 items-center   py-3 hover:bg-white/5 transition ease-linear duration-150  text-sm  
                     ${
                       currentPath === item.path &&
                       "bg-gray-100 text-black rounded-lg"

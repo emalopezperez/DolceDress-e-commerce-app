@@ -24,7 +24,7 @@ const SelectorQuantity = ({ quantity, setQuantity, stock }: PropsQuantity) => {
   };
 
   return (
-    <div className="rounded-md border border-gray-300   py-3 flex items-center gap-2  px-3">
+    <div className="rounded-md border border-gray-300   py-3 flex items-center gap-2  px-3 shadow-md">
       <button
         onClick={decreaseQuantity}
         className={`${stock <= 0 && "pointer-events-none"}`}>

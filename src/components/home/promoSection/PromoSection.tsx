@@ -1,101 +1,83 @@
 import Link from "next/link";
 import Image from "next/image";
+import { placeholderImage } from "@/helpers/placeholderImage";
 
 const PromoSection = () => {
   return (
-    <section className=" w-full  py-4">
-      <div className="  w-full h-full  flex justify-between gap-4 flex-col lg:flex-row">
-        <div className=" w-full flex flex-col gap-4 h-[100%] ">
-          <div className=" w-full relative">
+    <div className=" w-full mt-2 grid grid-cols-1 lg:grid-rows-1 grid-rows-2 lg:grid-cols-2 gap-2 lg:gap-4 mb-6 ">
+      <div className=" grid col-span-1  grid-rows-2 gap-2 lg:gap-4">
+        <div className="cols-span-2 row-span-1 w-full relative">
+          <div className="w-full h-full">
             <Image
               alt="Moda"
               src="https://hongotheme.myshopify.com/cdn/shop/files/demo-home-fashion-01.jpg?v=1679034110&width=940"
-              className="w-full h-full object-cover"
-              width={400}
-              height={400}
+              className="w-full h-full object-cover shadow-md rounded-lg"
+              fill
+              placeholder="blur"
+              blurDataURL={placeholderImage}
             />
-
-            <div className=" absolute top-5 md:top-16 right-0 md:w-[33%] w-[38%] h-[58%] ">
-              <div className="flex flex-col gap-6 h-full">
-                <h2 className="text-gray-600 font-bold">Descuentos de 50%</h2>
-                <h3 className="md:text-4xl text-2xl">Summer Collection</h3>
-                <Link
-                  href="/category/men"
-                  className="hidden md:flex w-[75%] px-2 py-3 text-md font-semibold leading-6 text-black ring-1 ring-gray-600 hover:ring-white/20">
-                  Shop collection{" "}
-                  <span aria-hidden="true" className="text-xl pl-1">
-                    {" "}
-                    →
-                  </span>
-                </Link>
-              </div>
-            </div>
           </div>
-          <div className="w-full flex flex-row  gap-4 h-full lg:h-[46%]">
-            <div className=" w-full relative">
-              <Image
-                alt="Moda"
-                src="https://hongotheme.myshopify.com/cdn/shop/files/demo-home-fashion-03.jpg?v=1672923495"
-                className="w-full h-full object-cover"
-                width={600}
-                height={600}
-              />
 
-              <div className=" absolute top-8 md:top-16 left-3 md:left-5 w-[70%] h-[75%] ">
-                <div className="flex flex-col gap-6 h-full">
-                  <h2 className="text-gray-600 font-bold">Fashion</h2>
-                  <h3 className="md:text-4xl text-2xl">Mens Collection</h3>
-                  <Link
-                    href="/category/men"
-                    className="md:flex hidden w-[75%] px-2 py-3 text-md font-semibold leading-6 text-black ring-1 ring-gray-600 hover:ring-white/20">
-                    Shop collection{" "}
-                    <span aria-hidden="true" className="text-xl pl-1">
-                      {" "}
-                      →
-                    </span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className=" w-full ">
-              <Image
-                alt="Moda"
-                src="https://hongotheme.myshopify.com/cdn/shop/files/demo-home-fashion-04.jpg?v=1660279624&width=535"
-                className="w-full h-full object-cover"
-                width={400}
-                height={400}
-              />
+          <div className=" absolute top-5 md:top-16 right-0 md:w-[33%] w-[38%] h-[58%] ">
+            <div className="flex flex-col gap-6 h-full">
+              <h2 className="text-gray-600 font-bold">Descuentos de 50%</h2>
+              <h3 className="md:text-4xl text-2xl">Summer Collection</h3>
             </div>
           </div>
         </div>
 
-        <div className=" w-full lg:h-full h-[50%] relative">
-          <Image
-            alt="Moda"
-            src="https://hongotheme.myshopify.com/cdn/shop/files/demo-home-fashion-02.jpg?v=1679034111&width=940"
-            className="w-full h-full object-cover"
-            width={400}
-            height={400}
-          />
+        <div className="grid grid-cols-2 gap-2 lg:gap-4">
+          <div className=" w-full relative">
+            <Image
+              alt="Moda"
+              src="https://hongotheme.myshopify.com/cdn/shop/files/demo-home-fashion-03.jpg?v=1672923495"
+              className="w-full h-full object-cover shadow-md rounded-lg"
+              fill
+              placeholder="blur"
+              blurDataURL={placeholderImage}
+            />
 
-          <div className=" absolute top-5 md:top-[30%] right-0 md:w-[33%] w-[38%] h-[68%] ">
-            <div className="flex flex-col gap-6 h-full">
-              <h2 className="text-gray-600 font-bold">Descuentos de 50%</h2>
-              <h3 className="md:text-4xl text-2xl">Women Collection</h3>
-              <Link
-                href="/category/women"
-                className="hidden md:flex w-[75%] px-2 py-3 text-md font-semibold leading-6 text-black ring-1 ring-gray-600 hover:ring-white/20">
-                Shop collection{" "}
-                <span aria-hidden="true" className="text-xl pl-1">
-                  {" "}
-                  →
-                </span>
-              </Link>
+            <div className=" absolute top-10 md:top-16 left-3 md:left-5 w-[70%] h-[75%] ">
+              <div className="flex flex-col gap-6 h-full">
+                <h2 className="text-gray-600 font-bold">Fashion</h2>
+                <h3 className="md:text-4xl text-2xl">Mens Collection</h3>
+              </div>
             </div>
+          </div>
+          <div className=" w-full h-full">
+            <Image
+              alt="Moda"
+              src="https://hongotheme.myshopify.com/cdn/shop/files/demo-home-fashion-04.jpg?v=1660279624&width=535"
+              className="w-full h-full object-cover shadow-md rounded-lg"
+              width={400}
+              height={400}
+              placeholder="blur"
+              blurDataURL={placeholderImage}
+            />
           </div>
         </div>
       </div>
-    </section>
+
+      <div className="relative col-span-1  row-span-1">
+        <div className="w-full h-full">
+          <Image
+            alt="Moda"
+            src="https://hongotheme.myshopify.com/cdn/shop/files/demo-home-fashion-02.jpg?v=1679034111&width=940"
+            className="w-full h-full object-cover shadow-md rounded-lg"
+            fill
+            placeholder="blur"
+            blurDataURL={placeholderImage}
+          />
+        </div>
+
+        <div className=" absolute top-5 md:top-[30%] right-0 md:w-[33%] w-[38%] h-[68%] ">
+          <div className="flex flex-col gap-6 h-full">
+            <h2 className="text-gray-600 font-bold">Descuentos de 50%</h2>
+            <h3 className="md:text-4xl text-2xl">Women Collection</h3>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
