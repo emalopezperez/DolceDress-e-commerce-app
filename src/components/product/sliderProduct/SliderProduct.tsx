@@ -2,13 +2,13 @@
 import Image from "next/image";
 import { Swiper as SwiperObject } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { Autoplay, FreeMode, Pagination, Thumbs } from "swiper/modules";
 
 import "./sliderProduct.css";
 
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/navigation";
+import "swiper/css/pagination";
 import "swiper/css/thumbs";
 import { useState } from "react";
 import { placeholderImage } from "@/helpers/placeholderImage";
@@ -23,19 +23,25 @@ const SliderProduct = ({ images, title }: PropsSliderProduct) => {
   return (
     <div className="">
       <Swiper
+        style={
+          {
+            "--swiper-pagination-color": "#808080",
+            "--swiper-pagination-bottom": "2%",
+          } as React.CSSProperties
+        }
         spaceBetween={10}
-        navigation={false}
+        pagination
         autoplay={{
           delay: 3500,
         }}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
-        modules={[FreeMode, Navigation, Thumbs, Autoplay]}
+        modules={[FreeMode, Thumbs, Autoplay, Pagination]}
         className="mySwiper2">
         {images.map((image) => (
           <SwiperSlide key={image}>
-            <div className=" h-[380px] md:h-[610px] w-full relative">
+            <div className=" h-[380px] md:h-[580px] w-full relative">
               <Image
                 fill
                 src={`/products/${image}`}
@@ -55,7 +61,7 @@ const SliderProduct = ({ images, title }: PropsSliderProduct) => {
         slidesPerView={4}
         freeMode={true}
         watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
+        modules={[FreeMode, Thumbs]}
         className="mySwiper">
         {images.map((image) => (
           <SwiperSlide key={image}>
