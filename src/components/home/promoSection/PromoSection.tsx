@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import { placeholderImage } from "@/helpers/placeholderImage";
 
@@ -18,10 +17,10 @@ const PromoSection = () => {
             />
           </div>
 
-          <div className=" absolute top-5 md:top-16 right-0 md:w-[33%] w-[38%] h-[58%] ">
+          <div className=" absolute top-0 md:top-16 right-0 md:w-[33%] w-[38%] h-[58%] ">
             <div className="flex flex-col gap-6 h-full">
               <h2 className="text-gray-600 font-bold">Descuentos de 50%</h2>
-              <h3 className="md:text-4xl text-2xl">Summer Collection</h3>
+              <h3 className="md:text-4xl text-xl">Summer Collection</h3>
             </div>
           </div>
         </div>
@@ -37,10 +36,10 @@ const PromoSection = () => {
               blurDataURL={placeholderImage}
             />
 
-            <div className=" absolute top-10 md:top-16 left-3 md:left-5 w-[70%] h-[75%] ">
+            <div className=" absolute top-5 md:top-16 left-3 md:left-5 w-[70%] h-[75%] ">
               <div className="flex flex-col gap-6 h-full">
                 <h2 className="text-gray-600 font-bold">Fashion</h2>
-                <h3 className="md:text-4xl text-2xl">Mens Collection</h3>
+                <h3 className="md:text-4xl text-xl">Mens Collection</h3>
               </div>
             </div>
           </div>
@@ -73,7 +72,7 @@ const PromoSection = () => {
         <div className=" absolute top-5 md:top-[30%] right-0 md:w-[33%] w-[38%] h-[68%] ">
           <div className="flex flex-col gap-6 h-full">
             <h2 className="text-gray-600 font-bold">Descuentos de 50%</h2>
-            <h3 className="md:text-4xl text-2xl">Women Collection</h3>
+            <h3 className="md:text-4xl text-xl">Women Collection</h3>
           </div>
         </div>
       </div>

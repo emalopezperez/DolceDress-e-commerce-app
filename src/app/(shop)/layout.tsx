@@ -1,5 +1,5 @@
 import Nav from "@/components/ui/nav/Nav";
-import SidebarMenu from "@/components/ui/sidebarMenu/SidebarMenu";
+import SidebarCart from "@/components/cart/sidebarCart/SidebarCart";
 import { initialData } from "@/seed/seed";
 
 const products = initialData.products.slice(0, 3);
@@ -15,7 +15,7 @@ export default function ShopLayout({
   return (
     <>
       <Nav categoryProducts={categoryProducts} />
-      <SidebarMenu data={products} title="Carrito de compras" />
+      <SidebarCart data={products} title="Carrito de compras" />
       {children}
     </>
   );
