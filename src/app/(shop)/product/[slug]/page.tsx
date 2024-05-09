@@ -21,14 +21,14 @@ export default function ProductPage({ params }: PropsProduct) {
   }
 
   return (
-    <div className="mt-24 mb-20 ">
+    <div className="pt-24 pb-20 ">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 ">
-          <div className="col-span-2  ">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-0 ">
+          <div className="col-span-2  bg-white">
             <SliderProduct images={product.images} title={product.title} />
           </div>
 
-          <div className="col-span-2  ">
+          <div className=" col-span-2 bg-white ">
             <DetailProduct info={product} />
           </div>
         </div>

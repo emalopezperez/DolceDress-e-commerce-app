@@ -17,7 +17,9 @@ const Title = ({ name, subtitle }: PropsTitle) => {
           ? "Accessorios"
           : name}
       </h1>
-      {subtitle && <h3 className="mt-4 text-sm text-gray-500">{subtitle}</h3>}
+      {subtitle && (
+        <h3 className=" mt-1 md:mt-2 text-sm text-gray-500">{subtitle}</h3>
+      )}
     </div>
   );
 };

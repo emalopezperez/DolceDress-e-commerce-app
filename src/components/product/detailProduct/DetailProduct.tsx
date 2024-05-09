@@ -27,7 +27,7 @@ const DetailProduct = ({ info }: PropsDetailProduct) => {
   const [like, setLike] = useState(false);
 
   return (
-    <div className=" flex flex-col gap-9 px-2">
+    <div className=" flex flex-col md:justify-between md:gap-0 gap-8 h-full md:h-[630px] pl-0 lg:pl-14 ">
       <div className="flex justify-between items-center flex-wrap gap-2">
         <Title name={info.title} />
         <LikeButton like={like} setLike={setLike} />
@@ -77,16 +77,15 @@ const DetailProduct = ({ info }: PropsDetailProduct) => {
         <p className="text-gray-600 text-sm mt-2">{info.description}</p>
       </div>
 
-      <div className="flex items-center gap-2 ">
-        <button className="flex items-center justify-center rounded-md border border-transparent bg-[#373f39]/90  py-3 text-base font-medium text-white  hover:bg-[#373f39]/80 w-full shadow-md">
-          Comprar
-        </button>
-
+      <div className="flex items-center gap-3">
         <SelectorQuantity
           quantity={quantity}
           setQuantity={setQuantity}
           stock={info.inStock}
         />
+        <button className="flex items-center justify-center rounded-md border border-transparent bg-[#373f39]/90  py-3 text-base font-medium text-white  hover:bg-[#373f39]/80 w-full shadow-md">
+          Agregar al carrito
+        </button>
       </div>
     </div>
   );
