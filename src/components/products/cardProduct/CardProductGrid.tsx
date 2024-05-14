@@ -6,6 +6,7 @@ import Image from "next/image";
 import { placeholderImage } from "@/helpers/placeholderImage";
 import Starts from "@/components/ui/starts/Starts";
 import LikeButton from "@/components/ui/buttons/likeButton/LikeButton";
+import { truncateToWords } from "@/helpers/fcTruncateToTwoWords";
 
 interface PropsCardProduct {
   product: Product;
@@ -34,7 +35,9 @@ const CardProductGrid = ({ product }: PropsCardProduct) => {
       </Link>
       <div className="mt-4 flex flex-col gap-4">
         <Link href={`/product/${product.slug}`} className="hover:text-gray-600">
-          <p className="font-ligth text-sm  ">{product.title}</p>
+          <p className="font-ligth text-sm  ">
+            {truncateToWords(product.title, 4)}
+          </p>
         </Link>
 
         <div className="flex justify-between items-center">

@@ -1,4 +1,4 @@
-import CardProductGrid from "./CardProductGrid";
+import CardProductGrid from "../cardProduct/CardProductGrid";
 
 import { Product } from "@/interfaces/product.interface";
 

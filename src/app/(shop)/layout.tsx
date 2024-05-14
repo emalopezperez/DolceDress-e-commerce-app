@@ -15,7 +15,7 @@ export default function ShopLayout({
   return (
     <>
       <Nav categoryProducts={categoryProducts} />
-      <SidebarCart data={products} title="Carrito de compras" />
+      <SidebarCart data={products} />
       {children}
     </>
   );

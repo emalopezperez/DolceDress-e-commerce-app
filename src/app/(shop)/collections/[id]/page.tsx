@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
-import Title from "@/components/ui/title/Title";
 import Container from "@/components/ui/container/Container";
-import CategoryFilters from "@/components/products/CategoryFilters/CategoryFilters";
 import { initialData } from "@/seed/seed";
+import HeaderCategorys from "@/components/collections/headerCategorys/HeaderCategorys";
+import CategoryFilters from "@/components/collections/categoryFilters/CategoryFilters";
 
 interface PropsCategory {
   params: {
@@ -10,7 +10,7 @@ interface PropsCategory {
   };
 }
 
-export default function CategoryPage({ params }: PropsCategory) {
+export default function CollectionPage({ params }: PropsCategory) {
   const { id } = params;
 
   if (
@@ -27,9 +27,9 @@ export default function CategoryPage({ params }: PropsCategory) {
   );
 
   return (
-    <div className="mt-24">
+    <div className="">
       <Container>
-        <Title name={id} subtitle="Nuestros productos" />
+        <HeaderCategorys name={id} />
         <CategoryFilters products={products} />
       </Container>
     </div>
