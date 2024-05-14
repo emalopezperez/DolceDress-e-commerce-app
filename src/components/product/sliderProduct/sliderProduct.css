@@ -1,14 +1,14 @@
 .mySwiper {
-  margin-top: 10px;
-  height: 20%;
-  box-sizing: border-box;
-  padding: 10px 0;
+  width: 100%;
+  height: 100%;
+  display: flex !important;
+  gap: 10px !important;
 }
 
 .mySwiper .swiper-slide {
-  width: 25%;
+  width: 100%;
   height: 100%;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .mySwiper .swiper-slide-thumb-active {
@@ -16,8 +16,11 @@
 }
 
 .swiper-slide img {
-  display: block;
   width: 100%;
-  height: 100%;
+  height: 129px;
   object-fit: cover;
+}
+
+.mySwiper .swiper-slide {
+  margin-bottom: 70px !important;
 }

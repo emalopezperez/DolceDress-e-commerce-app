@@ -30,7 +30,10 @@ export default function ProductPage({ params }: PropsProduct) {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-0 ">
           <div className="col-span-2  bg-white">
-            <SliderProduct images={product.images} title={product.title} />
+            <SliderProduct
+              images={product.images.slice(0, 4)}
+              title={product.title}
+            />
           </div>
 
           <div className=" col-span-2 bg-white ">
