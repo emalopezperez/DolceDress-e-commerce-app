@@ -10,7 +10,7 @@ interface PropsBreadcrumbs {
 
 export default function BreadcrumbsProduct({ type, name }: PropsBreadcrumbs) {
   return (
-    <nav className="flex pt-6">
+    <nav className="flex pt-6 pb-1">
       <ol role="list" className="flex items-center space-x-1">
         <li className="flex gap-1 items-center">
           <div>
@@ -28,8 +28,8 @@ export default function BreadcrumbsProduct({ type, name }: PropsBreadcrumbs) {
           </div>
           <div className="flex items-center">
             <ChevronRightIcon className="h-5 w-5 flex-shrink-0 text-gray-400" />
-            <span className=" ml-1 text-sm font-medium text-gray-400 ">
-              {truncateToWords(name, 3)}
+            <span className=" ml-1 text-sm font-medium text-gray-300 ">
+              {truncateToWords(name, 2)}
             </span>
           </div>
         </li>
