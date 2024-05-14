@@ -29,20 +29,20 @@ export const initialData: SeedData = {
   categoryProducs: [
     {
       id: 1,
-      path: "/category/shirts",
+      path: "/collections/shirts",
       title: "Remeras",
     },
     {
       id: 2,
-      path: "/category/pants",
+      path: "/collections/pants",
       title: "Pantalones",
     },
     {
       id: 3,
-      path: "/category/jackets",
+      path: "/collections/jackets",
       title: "Camperas",
     },
-    { id: 4, path: "/category/accessories", title: "Accesorios" },
+    { id: 4, path: "/collections/accessories", title: "Accesorios" },
   ],
   products: [
     {

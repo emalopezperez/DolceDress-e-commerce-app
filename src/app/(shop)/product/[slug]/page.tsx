@@ -1,3 +1,4 @@
+import BreadcrumbsProduct from "@/components/product/breadcrumbsProduct/BreadcrumbsProduct";
 import DetailProduct from "@/components/product/detailProduct/DetailProduct";
 import ReviewsProduct from "@/components/product/reviews/Reviews";
 import SliderProduct from "@/components/product/sliderProduct/SliderProduct";
@@ -21,8 +22,12 @@ export default function ProductPage({ params }: PropsProduct) {
   }
 
   return (
-    <div className="pt-24 pb-20 ">
+    <div className="lg:pt-24 pt-16 pb-20 ">
       <Container>
+        <div className="mb-2 ">
+          <BreadcrumbsProduct type={product.type} name={product.title} />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-0 ">
           <div className="col-span-2  bg-white">
             <SliderProduct images={product.images} title={product.title} />

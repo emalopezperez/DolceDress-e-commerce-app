@@ -8,8 +8,8 @@ const MenuCategory = ({
   categoryProducts,
 }: PropsMenuItems) => {
   return (
-    <div className="flex items-center">
-      <div className="hidden sm:ml-6 sm:block">
+    <div className="flex items-center ">
+      <div className="hidden sm:block">
         <div className="flex space-x-5">
           {menuItems.map((item) => (
             <div className="flex items-center" key={item.id}>

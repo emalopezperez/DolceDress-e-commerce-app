@@ -5,7 +5,6 @@ import Link from "next/link";
 
 const MenuCategoryMobil = ({
   menuItems,
-  currentPath,
   categoryProducts,
   setOpenMenuMobil,
 }: PropsMenuMobil) => {

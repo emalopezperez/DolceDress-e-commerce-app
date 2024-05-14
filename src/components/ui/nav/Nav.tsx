@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Disclosure } from "@headlessui/react";
 import Logo from "./components/Logo";
 import MenuCategory from "./components/MenuCategory";
 import Profile from "./components/Profile";
@@ -16,7 +15,7 @@ const menuItems = [
   { id: 1, path: "/", title: "Inicio" },
   {
     id: 6,
-    path: "/products",
+    path: "/collections",
     title: "Tienda",
     subMenu: true,
   },
@@ -74,15 +73,15 @@ export default function Header({ categoryProducts }: PropsNav) {
             </div>
           </div>
 
-          <div className="flex-shrink-0 sm:flex hidden ">
-            <Logo />
-          </div>
-
           <MenuCategory
             menuItems={menuItems}
             currentPath={currentPath}
             categoryProducts={categoryProducts}
           />
+
+          <div className=" sm:flex hidden pr-0 lg:pr-36 ">
+            <Logo />
+          </div>
 
           <div className="gap-6 items-center hidden  sm:flex">
             <Link href="/search" className="text-gray-700">

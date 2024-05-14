@@ -1,20 +1,21 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Product } from "@/interfaces/product.interface";
 import { X } from "lucide-react";
 import { useUIStore } from "@/store/ui/ui-store";
+import SelectorQuantity from "@/components/cart/selectorQuantity/SelectorQuantity";
 
 interface PropsSidebar {
   data: Product[];
-  title?: string;
 }
 
-export default function SidebarCart({ data, title }: PropsSidebar) {
+export default function SidebarCart({ data }: PropsSidebar) {
   const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen);
   const closeMenu = useUIStore((state) => state.closeSideMenu);
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <Transition.Root show={isSideMenuOpen} as={Fragment}>
@@ -35,18 +36,18 @@ export default function SidebarCart({ data, title }: PropsSidebar) {
             <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-0 lg:pl-10">
               <Transition.Child
                 as={Fragment}
-                enter="transform transition ease-in-out duration-500 sm:duration-700"
+                enter="transform transition ease-in-out duration-400 sm:duration-700"
                 enterFrom="translate-x-full"
                 enterTo="translate-x-0"
-                leave="transform transition ease-in-out duration-500 sm:duration-700"
+                leave="transform transition ease-in-out duration-400 sm:duration-700"
                 leaveFrom="translate-x-0"
                 leaveTo="translate-x-full">
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
                   <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl mt-16">
                     <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                       <div className="flex items-start justify-between">
-                        <Dialog.Title className="text-lg font-medium text-gray-900">
-                          {title}
+                        <Dialog.Title className="text-2xl font-medium text-gray-800">
+                          Carrito de compras
                         </Dialog.Title>
                         <div className=" flex  items-center">
                           <button
@@ -92,7 +93,13 @@ export default function SidebarCart({ data, title }: PropsSidebar) {
                                     </p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
-                                    <p className="text-gray-500">Cantidad 2</p>
+                                    <div className="pt-1">
+                                      <SelectorQuantity
+                                        quantity={quantity}
+                                        setQuantity={setQuantity}
+                                        stock={product.inStock}
+                                      />
+                                    </div>
 
                                     <div className="flex">
                                       <button
@@ -118,24 +125,13 @@ export default function SidebarCart({ data, title }: PropsSidebar) {
                       <p className="mt-0.5 text-sm text-gray-500">
                         Shipping and taxes calculated at checkout.
                       </p>
-                      <div className="mt-6">
+                      <div className="mt-6 mb-14">
                         <Link
-                          href="/"
+                          onClick={() => closeMenu()}
+                          href="/checkout/address"
                           className="flex items-center justify-center rounded-md border border-transparent bg-[#373f39]/90 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-[#373f39]/80 ">
                           Checkout
                         </Link>
-                      </div>
-                      <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-                        <p>
-                          or{" "}
-                          <Link
-                            href="/cart"
-                            className="font-medium text-[#373f39] hover:text-[#373f39]/80"
-                            onClick={() => closeMenu()}>
-                            Continue Shopping
-                            <span aria-hidden="true"> &rarr;</span>
-                          </Link>
-                        </p>
                       </div>
                     </div>
                   </div>

@@ -3,11 +3,11 @@ import { useState } from "react";
 import { Product } from "@/interfaces/product.interface";
 import SelectorColor from "./components/selectorColor/SelectorColor";
 import SelectorSize from "./components/selectorSize/SelectorSize";
-import Title from "@/components/ui/title/Title";
-import Starts from "@/components/ui/starts/Starts";
+
 import LikeButton from "../../ui/buttons/likeButton/LikeButton";
-import SelectorQuantity from "./components/selectorQuantity/SelectorQuantity";
+import SelectorQuantity from "../../cart/selectorQuantity/SelectorQuantity";
 import Stock from "./components/stock/Stock";
+import Title from "./components/title/Title";
 
 interface PropsDetailProduct {
   info: Product;
@@ -27,7 +27,7 @@ const DetailProduct = ({ info }: PropsDetailProduct) => {
   const [like, setLike] = useState(false);
 
   return (
-    <div className=" flex flex-col md:justify-between md:gap-0 gap-8 h-full md:h-[630px] pl-0 lg:pl-14 ">
+    <div className=" flex flex-col md:justify-between md:gap-0 gap-8 h-full md:h-[540px] pl-0 lg:pl-14 ">
       <div className="flex justify-between items-center flex-wrap gap-2">
         <Title name={info.title} />
         <LikeButton like={like} setLike={setLike} />

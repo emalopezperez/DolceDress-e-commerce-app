@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import Link from "next/link";
+import { placeholderImage } from "@/helpers/placeholderImage";
 
 interface PropsSlider {
   slides: Slides[];
@@ -45,6 +46,8 @@ const HeroSlider = ({ slides }: PropsSlider) => {
               fill
               priority
               className="absolute -z-10 h-full  w-full cursor-pointer object-cover"
+              placeholder="blur"
+              blurDataURL={placeholderImage}
             />
             <div className="bg-gray-800/25  absolute top-0 w-full h-full"></div>
 

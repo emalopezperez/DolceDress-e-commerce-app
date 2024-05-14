@@ -2,7 +2,7 @@
 import { Disclosure } from "@headlessui/react";
 import { MinusIcon, PlusIcon } from "lucide-react";
 import { Product } from "@/interfaces/product.interface";
-import ProductsGrid from "../productsGrid/ProductsGrid";
+import ProductsGrid from "../../products/productsGrid/ProductsGrid";
 
 const subCategories = [
   { name: "Totes", href: "#" },
