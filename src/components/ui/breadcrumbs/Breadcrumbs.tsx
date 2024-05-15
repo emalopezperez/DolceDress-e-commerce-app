@@ -17,11 +17,13 @@ export default function Breadcrumbs() {
   });
 
   return (
-    <nav className="flex pt-6">
+    <nav className="flex pt-6 ">
       <ol role="list" className="flex items-center space-x-1">
         <li>
           <div>
-            <Link href="/" className="text-gray-400 hover:text-gray-500">
+            <Link
+              href="/"
+              className="text-gray-800 lg:text-gray-200 hover:text-gray-500">
               <span>Inicio</span>
             </Link>
           </div>
@@ -29,15 +31,15 @@ export default function Breadcrumbs() {
         {pages.map((page) => (
           <li key={page.name}>
             <div className="flex items-center">
-              <ChevronRightIcon className="h-5 w-5 flex-shrink-0 text-gray-400" />
+              <ChevronRightIcon className="h-5 w-5 flex-shrink-0  lg:text-gray-300 text-gray-400" />
               {pathname === page.url ? (
-                <span className="ml-1 text-sm font-medium text-gray-700">
+                <span className="ml-1 text-sm font-medium text-gray-400 lg:text-gray-500 ">
                   {fcCapitalizeFirstLetter(page.name)}
                 </span>
               ) : (
                 <Link
                   href={page.url}
-                  className="ml-1 text-sm font-medium text-gray-500 hover:text-gray-700">
+                  className="ml-1 text-sm font-medium text-gray-800 lg:text-gray-200 hover:text-gray-500">
                   {fcCapitalizeFirstLetter(page.name)}
                 </Link>
               )}

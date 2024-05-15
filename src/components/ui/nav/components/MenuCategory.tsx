@@ -8,7 +8,7 @@ const MenuCategory = ({
   categoryProducts,
 }: PropsMenuItems) => {
   return (
-    <div className="flex items-center ">
+    <div className="flex items-center  mr-0 lg:mr-27">
       <div className="hidden sm:block">
         <div className="flex space-x-5">
           {menuItems.map((item) => (

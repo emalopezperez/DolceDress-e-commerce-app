@@ -5,7 +5,7 @@ interface PropsTitle {
 
 const Title = ({ name, subtitle }: PropsTitle) => {
   return (
-    <div className="pt-6 pb-6 block lg:flex flex-col justify-center items-center">
+    <div className="pt-10 pb-10 block lg:flex flex-col justify-center items-center bg-gray-50 pl-4 lg:pl-0 rounded-md">
       <h1 className="md:text-4xl font-bold tracking-tight-4  text-2xl antialiased text-gray-800">
         {name === "shirts"
           ? "Remeras"
@@ -18,7 +18,7 @@ const Title = ({ name, subtitle }: PropsTitle) => {
           : name}
       </h1>
       {subtitle && (
-        <h3 className=" mt-1 md:mt-2 text-sm text-gray-400">{subtitle}</h3>
+        <h3 className=" pt-1 md:pt-4 text-sm text-gray-400">{subtitle}</h3>
       )}
     </div>
   );

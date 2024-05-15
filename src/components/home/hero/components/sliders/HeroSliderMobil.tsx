@@ -68,7 +68,7 @@ const HeroSliderMobil = ({ slides }: PropsSlider) => {
                         {parraf}
                       </p>
                       <Link
-                        href="/products"
+                        href="/collections"
                         className="shadow-md px-4 py-3 text-md font-semibold leading-6 text-white ring-1 ring-white/20 hover:bg-white hover:text-gray-700">
                         Shop collection{" "}
                         <span aria-hidden="true" className="text-xl pl-2">

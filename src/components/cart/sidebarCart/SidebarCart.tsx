@@ -137,7 +137,7 @@ export default function SidebarCart({ data }: PropsSidebar) {
                         <Link
                           onClick={() => closeMenu()}
                           href="/cart"
-                          className="flex items-center justify-center rounded-md border border-transparent bg-gray-900 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-800 ">
+                          className="flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-600 ">
                           Ver carrito
                         </Link>
                       </div>

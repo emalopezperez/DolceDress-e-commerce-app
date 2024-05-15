@@ -8,11 +8,9 @@ const products = initialData.products;
 
 export default function Collections() {
   return (
-    <div className="">
-      <Container>
-        <HeaderCategorys name="Nuestros productos" />
-        <CategoryFilters products={products} />
-      </Container>
-    </div>
+    <Container>
+      <HeaderCategorys name="Nuestros productos" />
+      <CategoryFilters products={products} />
+    </Container>
   );
 }
