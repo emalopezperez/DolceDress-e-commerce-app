@@ -74,7 +74,7 @@ export default function CategoryFilter({ products }: PropsCategoryFilter) {
     <main className="w-full ">
       <div className="mt-6 border-b border-gray-200 "></div>
       <section aria-labelledby="products-heading" className="">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4 k">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4 ">
           <form className="hidden lg:block mt-4">
             <ul
               role="list"
@@ -134,7 +134,7 @@ export default function CategoryFilter({ products }: PropsCategoryFilter) {
             ))}
           </form>
 
-          <div className="lg:col-span-3 ">
+          <div className="lg:col-span-3 mt-6">
             <ProductsGrid products={products} />
           </div>
         </div>

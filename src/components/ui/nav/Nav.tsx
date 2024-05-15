@@ -73,15 +73,15 @@ export default function Header({ categoryProducts }: PropsNav) {
             </div>
           </div>
 
+          <div className=" sm:flex hidden  ">
+            <Logo />
+          </div>
+
           <MenuCategory
             menuItems={menuItems}
             currentPath={currentPath}
             categoryProducts={categoryProducts}
           />
-
-          <div className=" sm:flex hidden pr-0 lg:pr-36 ">
-            <Logo />
-          </div>
 
           <div className="gap-6 items-center hidden  sm:flex">
             <Link href="/search" className="text-gray-700">

@@ -13,12 +13,15 @@ export default function Home() {
       <Hero />
       <Container>
         <PromoSection />
-        <div className="mt-6">
+        <div className=" mt-8 lg:mt-12">
           <Title
             name="Nuevos ingresos"
             subtitle="Alguno de nuestros productos"
           />
-          <ProductsGrid products={products} />
+
+          <div className="mt-0 lg:mt-12 ">
+            <ProductsGrid products={products} />
+          </div>
         </div>
       </Container>
     </>

@@ -1,15 +1,14 @@
 import Image from "next/image";
 import { placeholderImage } from "@/helpers/placeholderImage";
-import { CheckIcon, ClockIcon, X } from "lucide-react";
 import { Product } from "@/interfaces/product.interface";
-import SelectorQuantity from "../selectorQuantity/SelectorQuantity";
+
 import Link from "next/link";
 
 interface PropsInfoProduct {
   data: Product[];
 }
 
-const InfoProductCart = ({ data }: PropsInfoProduct) => {
+const InfoProductsCheckout = ({ data }: PropsInfoProduct) => {
   return (
     <ul
       role="list"
@@ -56,17 +55,11 @@ const InfoProductCart = ({ data }: PropsInfoProduct) => {
                     $ {product.price}
                   </p>
 
-                  <SelectorQuantity
-                    quantity={3}
-                    setQuantity={() => 1}
-                    stock={product.inStock}
-                  />
-
-                  <button
-                    type="button"
-                    className="font-medium text-red-600 hover:text-red-900">
-                    Eliminar
-                  </button>
+                  <Link
+                    href="/cart"
+                    className="font-medium text-green-900 hover:text-green-800">
+                    Editar
+                  </Link>
                 </div>
               </div>
             </div>
@@ -77,4 +70,4 @@ const InfoProductCart = ({ data }: PropsInfoProduct) => {
   );
 };
 
-export default InfoProductCart;
+export default InfoProductsCheckout;
