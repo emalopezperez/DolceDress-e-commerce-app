@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./components/Logo";
-import MenuCategory from "./components/MenuCategory";
 import Profile from "./components/Profile";
 import MenuMobil from "./components/MenuMobil";
 import { AlignJustify, X, ShoppingCart, Search } from "lucide-react";
@@ -10,6 +9,7 @@ import { useUIStore } from "@/store/ui/ui-store";
 import { SubMenu } from "./interfaces/nav";
 import ButtonCart from "./components/ButtonCart";
 import { useState } from "react";
+import { MenuCategory } from "./components/MenuCategory";
 
 const menuItems = [
   { id: 1, path: "/", title: "Inicio" },
@@ -77,11 +77,9 @@ export default function Header({ categoryProducts }: PropsNav) {
             <Logo />
           </div>
 
-          <MenuCategory
-            menuItems={menuItems}
-            currentPath={currentPath}
-            categoryProducts={categoryProducts}
-          />
+          <div className="lg:flex hidden pr-10">
+            <MenuCategory categoryProducts={categoryProducts} />
+          </div>
 
           <div className="gap-6 items-center hidden  sm:flex">
             <Link href="/search" className="text-gray-700">

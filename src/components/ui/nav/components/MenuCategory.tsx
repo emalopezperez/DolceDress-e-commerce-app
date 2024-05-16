@@ -1,42 +1,95 @@
-import { Link } from "next-view-transitions";
-import { PropsMenuItems } from "../interfaces/nav";
-import FlyoutMenus from "../../flyoutMenus/FlyoutMenus";
+"use client";
 
-const MenuCategory = ({
-  menuItems,
-  currentPath,
-  categoryProducts,
-}: PropsMenuItems) => {
+import * as React from "react";
+import Link from "next/link";
+
+import { cn } from "@/lib/utils";
+
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/shadcn-ui/navigation-menu";
+import { SubMenu } from "../interfaces/nav";
+
+interface PropsMenuCategory {
+  categoryProducts: SubMenu[];
+}
+
+export function MenuCategory({ categoryProducts }: PropsMenuCategory) {
   return (
-    <div className="flex items-center  mr-0 lg:mr-27">
-      <div className="hidden sm:block">
-        <div className="flex space-x-5">
-          {menuItems.map((item) => (
-            <div className="flex items-center" key={item.id}>
-              <Link
-                href={item.path}
-                className={`
-             relative after:absolute after:bg-neutral-400 after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300 w-full text-gray-800 
-            ${
-              currentPath === item.path &&
-              " relative after:absolute after:bg-neutral-400 after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right hover:after:origin-bottom-left after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300"
-            }
-          `}>
-                <span>{item.title} </span>
-              </Link>
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Inicio
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
 
-              {item.subMenu && (
-                <FlyoutMenus
-                  categoryProducts={categoryProducts}
-                  currentPath={currentPath}
-                />
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Tienda</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid  gap-1 p-4 w-[300px] grid-cols-1 ">
+              <ListItem title="Tienda" href="/collections">
+                descripcion
+              </ListItem>
+              {categoryProducts.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.path}>
+                  descripcion
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Contacto
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Nosotros
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
   );
-};
+}
 
-export default MenuCategory;
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer ",
+            className
+          )}
+          {...props}>
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-[12px] leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";

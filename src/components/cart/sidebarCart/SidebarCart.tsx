@@ -125,20 +125,21 @@ export default function SidebarCart({ data }: PropsSidebar) {
                       <p className="mt-0.5 text-sm text-gray-500">
                         Shipping and taxes calculated at checkout.
                       </p>
+
                       <div className="mt-6 mb-2">
+                        <Link
+                          onClick={() => closeMenu()}
+                          href="/cart"
+                          className="flex items-center justify-center rounded-md border border-gray-500  px-6 py-3 text-base font-medium text-gray-900 b shadow-sm hover:bg-gray-100 ">
+                          Ver carrito
+                        </Link>
+                      </div>
+                      <div className=" mb-14">
                         <Link
                           onClick={() => closeMenu()}
                           href="/checkout/address"
                           className="flex items-center justify-center rounded-md border border-transparent bg-[#373f39]/90 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-[#373f39]/80 ">
                           Checkout
-                        </Link>
-                      </div>
-                      <div className="mb-14">
-                        <Link
-                          onClick={() => closeMenu()}
-                          href="/cart"
-                          className="flex items-center justify-center rounded-md border border-transparent bg-gray-800 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-600 ">
-                          Ver carrito
                         </Link>
                       </div>
                     </div>

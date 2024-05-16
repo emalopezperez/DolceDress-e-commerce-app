@@ -59,11 +59,11 @@ const OrderSummaryCheckout = () => {
       <p className="mt-2 ml-2">
         <span className="text-xs text-gray-500 font-ligth">
           Al hacer clic aceptas nuestros{" "}
-          <Link href="#" className="underline">
+          <Link href="/term-and-conditions" className="underline">
             términos y condiciones
           </Link>{" "}
           y{" "}
-          <Link href="#" className="underline">
+          <Link href="term-and-conditions" className="underline">
             política de privacidad
           </Link>
         </span>
