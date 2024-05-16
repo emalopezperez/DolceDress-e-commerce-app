@@ -1,10 +1,16 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { ChevronRightIcon } from "lucide-react";
-import { Link } from "next-view-transitions";
-import { fcCapitalizeFirstLetter } from "@/helpers/fcCapitalizeFirstLetter";
 
-export default function Breadcrumbs() {
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/shadcn-ui/breadcrumb";
+
+const Breadcrumbs = () => {
   const pathname = usePathname();
 
   const segments = pathname.split("/").slice(1);
@@ -17,36 +23,26 @@ export default function Breadcrumbs() {
   });
 
   return (
-    <nav className="flex pt-6 ">
-      <ol role="list" className="flex items-center space-x-1">
-        <li>
-          <div>
-            <Link
-              href="/"
-              className="text-gray-800 lg:text-gray-200 hover:text-gray-500">
-              <span>Inicio</span>
-            </Link>
-          </div>
-        </li>
-        {pages.map((page) => (
-          <li key={page.name}>
-            <div className="flex items-center">
-              <ChevronRightIcon className="h-5 w-5 flex-shrink-0  lg:text-gray-300 text-gray-400" />
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Inicio</BreadcrumbLink>
+        </BreadcrumbItem>
+        {pages.map((page, index) => (
+          <>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
               {pathname === page.url ? (
-                <span className="ml-1 text-sm font-medium text-gray-400 lg:text-gray-500 ">
-                  {fcCapitalizeFirstLetter(page.name)}
-                </span>
+                <span>{page.name}</span>
               ) : (
-                <Link
-                  href={page.url}
-                  className="ml-1 text-sm font-medium text-gray-800 lg:text-gray-200 hover:text-gray-500">
-                  {fcCapitalizeFirstLetter(page.name)}
-                </Link>
+                <BreadcrumbLink href={page.url}>{page.name}</BreadcrumbLink>
               )}
-            </div>
-          </li>
+            </BreadcrumbItem>
+          </>
         ))}
-      </ol>
-    </nav>
+      </BreadcrumbList>
+    </Breadcrumb>
   );
-}
+};
+
+export default Breadcrumbs;

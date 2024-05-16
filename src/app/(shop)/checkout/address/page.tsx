@@ -7,7 +7,7 @@ export default function AddressPage() {
   return (
     <Container>
       <HeaderTitles name="Direccion" />
-      <section className="w-full grid grid-cols-1 lg:grid-cols-5 mb-4 gap-10">
+      <section className="w-full grid grid-cols-1 lg:grid-cols-5 mb-4 gap-10 ">
         <div className="col-span-1 lg:col-span-2 ">
           <div className="w-full h-full relative">
             <Image
@@ -19,7 +19,7 @@ export default function AddressPage() {
           </div>
         </div>
 
-        <div className="col-span-1 lg:col-span-3 w-full">
+        <div className="col-span-1 lg:col-span-3">
           <FormAddress />
         </div>
       </section>
