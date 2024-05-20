@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const OrderSummaryCheckout = () => {
   return (
-    <section className=" rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8 shadow-sm">
+    <section className=" rounded-lg bg-gray-50/75 py-2 lg:col-span-5 lg:mt-0 px-4 shadow-md">
       <h2 className="text-xl font-bold text-gray-900">Direccion de entrega</h2>
-      <div className="space-y-4 mt-6 mb-4">
+      <div className="space-y-4 mt-2 mb-4">
         <p className="text-gray-900 font-medium text-sm">Emanuel Lopez</p>
         <p className="text-gray-900 font-medium text-sm">
           Montevideo, Tres Cruces
@@ -17,7 +17,7 @@ const OrderSummaryCheckout = () => {
       <h2 className="text-xl font-bold text-gray-900">
         Resumen de la orden de compra
       </h2>
-      <dl className="mt-6 space-y-4">
+      <dl className="mt-2 space-y-4">
         <div className="flex items-center justify-between">
           <dt className="text-sm text-gray-600">Subtotal</dt>
           <dd className="text-sm font-medium text-gray-900">$99.00</dd>
@@ -56,7 +56,7 @@ const OrderSummaryCheckout = () => {
         </div>
       </dl>
 
-      <p className="mt-2 ml-2">
+      <p className="mt-1 ml-2">
         <span className="text-xs text-gray-500 font-ligth">
           Al hacer clic aceptas nuestros{" "}
           <Link href="/term-and-conditions" className="underline">
@@ -69,7 +69,7 @@ const OrderSummaryCheckout = () => {
         </span>
       </p>
 
-      <div className="mt-3 ">
+      <div className="mt-1 ">
         <Link
           href="/orders/12"
           className="flex items-center justify-center rounded-md border border-transparent bg-[#373f39]/90 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-[#373f39]/80 ">

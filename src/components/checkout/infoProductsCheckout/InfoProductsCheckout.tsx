@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { placeholderImage } from "@/helpers/placeholderImage";
 import { Product } from "@/interfaces/product.interface";
-
 import Link from "next/link";
 
 interface PropsInfoProduct {
@@ -14,7 +13,7 @@ const InfoProductsCheckout = ({ data }: PropsInfoProduct) => {
       role="list"
       className="divide-y divide-gray-200 border-b border-t border-gray-200">
       {data.map((product) => (
-        <li key={product.slug} className="flex py-4 items-center">
+        <li key={product.slug} className="flex py-3 items-center">
           <div className="flex-shrink-0">
             <Image
               src={`/products/${product.images[0]}`}
