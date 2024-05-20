@@ -11,6 +11,7 @@ import PriceFilters from "@/components/collections/Filters/priceFilters/PriceFil
 import SizeFilters from "@/components/collections/Filters/sizeFilters/SizeFilters";
 import ProductsGrid from "@/components/products/productsGrid/ProductsGrid";
 import { initialData } from "@/seed/seed";
+import { SideBar } from "@/components/collections/Filters/sideBar/SideBar";
 
 interface PropsCategory {
   params: {
@@ -110,11 +111,31 @@ export default function CollectionPage({ params }: PropsCategory) {
   return (
     <Container>
       <Titles name={id} />
-      <HeaderFilters
-        filter={filter}
-        setFilter={setFilter}
-        sortOptions={SORT_OPTIONS}
-      />
+
+      <div className="flex pb-2 border-b border-gray-200 mb-6 ">
+        <HeaderFilters
+          filter={filter}
+          setFilter={setFilter}
+          sortOptions={SORT_OPTIONS}
+        />
+        <SideBar direction="left" title="Filters">
+          <div className="">
+            <CategoryFilters subCategory={subCategory} />
+
+            <Accordion type="multiple" className="animate-none">
+              <ColorsFilters
+                colorFilters={COLOR_FILTERS}
+                handleColorChange={handleColorChange}
+              />
+              <SizeFilters
+                sizeFilters={SIZE_FILTERS}
+                handleSizeChange={handleSizeChange}
+              />
+            </Accordion>
+          </div>
+        </SideBar>
+      </div>
+
       <section className=" grid  grid-cols-1 md:grid-cols-4 gap-4 ">
         <div className=" col-span-1 hidden lg:block pt-2">
           <CategoryFilters subCategory={subCategory} />
