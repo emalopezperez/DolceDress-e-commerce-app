@@ -7,7 +7,7 @@ interface SeedProduct {
   slug: string;
   tags: string[];
   title: string;
-  type: ValidTypes;
+  type: string;
   gender: "men" | "women" | "kid" | "unisex";
 }
 
@@ -18,7 +18,6 @@ interface SeedCategorys {
 }
 
 type ValidSizes = "XS" | "S" | "M" | "L" | "XL" | "XXL" | "XXXL";
-type ValidTypes = "shirts" | "pants" | "hoodies" | "hats";
 
 interface SeedData {
   products: SeedProduct[];
@@ -27,6 +26,12 @@ interface SeedData {
 
 export const initialData: SeedData = {
   categoryProducs: [
+    {
+      id: 33,
+      path: "/collections",
+      title: "All products",
+    },
+
     {
       id: 1,
       path: "/collections/shirts",
@@ -385,7 +390,7 @@ export const initialData: SeedData = {
       price: 60,
       sizes: ["XS", "S", "M", "L", "XL", "XXL"],
       slug: "cybertruck_graffiti_hoodie",
-      type: "hoodies",
+      type: "accessories",
       tags: ["hoodie"],
       title: "Cybertruck Graffiti Hoodie",
       gender: "unisex",
@@ -398,7 +403,7 @@ export const initialData: SeedData = {
       price: 30,
       sizes: ["XS", "S", "M", "L", "XL", "XXL"],
       slug: "relaxed_t_logo_hat",
-      type: "hats",
+      type: "accessories",
       tags: ["hats"],
       title: "Relaxed T Logo Hat",
       gender: "unisex",
@@ -411,7 +416,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ["XS", "S", "M", "L", "XL", "XXL"],
       slug: "thermal_cuffed_beanie",
-      type: "hats",
+      type: "accessories",
       tags: ["hats"],
       title: "Thermal Cuffed Beanie",
       gender: "unisex",
@@ -424,7 +429,7 @@ export const initialData: SeedData = {
       price: 225,
       sizes: ["XS", "S", "M"],
       slug: "women_cropped_puffer_jacket",
-      type: "hoodies",
+      type: "accessories",
       tags: ["hoodie"],
       title: "Women's Cropped Puffer Jacket",
       gender: "women",
@@ -541,7 +546,7 @@ export const initialData: SeedData = {
       price: 35,
       sizes: ["S", "M"],
       slug: "women_plaid_mode_tee",
-      type: "shirts",
+      type: "pants",
       tags: ["shirt"],
       title: "Women's Plaid Mode Tee",
       gender: "women",
@@ -568,7 +573,7 @@ export const initialData: SeedData = {
       sizes: ["M", "L", "XL", "XXL"],
       slug: "women_corp_jacket",
       type: "shirts",
-      tags: ["shirt"],
+      tags: ["pants"],
       title: "Women's Corp Jacket",
       gender: "women",
     },
@@ -580,7 +585,7 @@ export const initialData: SeedData = {
       price: 100,
       sizes: ["XS", "S", "M", "L", "XL", "XXL"],
       slug: "women_raven_joggers",
-      type: "shirts",
+      type: "pants",
       tags: ["shirt"],
       title: "Women's Raven Joggers",
       gender: "women",
@@ -606,7 +611,7 @@ export const initialData: SeedData = {
       price: 25,
       sizes: ["XS", "S", "M"],
       slug: "kids_scribble_t_logo_tee",
-      type: "shirts",
+      type: "pants",
       tags: ["shirt"],
       title: "Kids Scribble T Logo Tee",
       gender: "kid",
@@ -658,7 +663,7 @@ export const initialData: SeedData = {
       price: 30,
       sizes: ["XS", "S", "M"],
       slug: "kids_checkered_tee",
-      type: "shirts",
+      type: "jackets",
       tags: ["shirt"],
       title: "Kids Checkered Tee",
       gender: "kid",
@@ -671,7 +676,7 @@ export const initialData: SeedData = {
       price: 25,
       sizes: ["XS", "S"],
       slug: "made_on_earth_by_humans_onesie",
-      type: "shirts",
+      type: "jackets",
       tags: ["shirt"],
       title: "Made on Earth by Humans Onesie",
       gender: "kid",
@@ -684,7 +689,7 @@ export const initialData: SeedData = {
       price: 30,
       sizes: ["XS", "S"],
       slug: "scribble_t_logo_onesie",
-      type: "shirts",
+      type: "jackets",
       tags: ["shirt"],
       title: "Scribble T Logo Onesie",
       gender: "kid",
@@ -723,7 +728,7 @@ export const initialData: SeedData = {
       price: 30,
       sizes: ["XS", "S", "M"],
       slug: "kids_corp_jacket",
-      type: "shirts",
+      type: "jackets",
       tags: ["shirt"],
       title: "Kids Corp Jacket",
       gender: "kid",

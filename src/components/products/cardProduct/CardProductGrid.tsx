@@ -19,7 +19,7 @@ const CardProductGrid = ({ product }: PropsCardProduct) => {
   return (
     <article
       key={product.slug}
-      className="overflow-hidden rounded-md fade-in border border-gray-100 p-3 shadow-sm">
+      className="overflow-hidden rounded-md fade-in  p-2 shadow-md">
       <Link href={`/product/${product.slug}`}>
         <Image
           src={`/products/${displayImage}`}
@@ -28,24 +28,29 @@ const CardProductGrid = ({ product }: PropsCardProduct) => {
           placeholder="blur"
           blurDataURL={placeholderImage}
           alt={product.title}
-          className="w-full object-cover rounded transition-all duration-400 ease-in-out sadow-sm"
+          className="w-full object-cover rounded transition-all duration-400 ease-in-out sadow-sm object-center"
           onMouseEnter={() => setDisplayImage(product.images[1])}
           onMouseLeave={() => setDisplayImage(product.images[0])}
         />
       </Link>
-      <div className="mt-4 flex flex-col gap-4">
-        <Link href={`/product/${product.slug}`} className="hover:text-gray-600">
-          <p className="font-ligth text-sm  ">
-            {truncateToWords(product.title, 4)}
-          </p>
-        </Link>
-
+      <div className="mt-4 flex flex-col gap-2">
         <div className="flex justify-between items-center">
-          <Starts />
+          <Link
+            href={`/product/${product.slug}`}
+            className="hover:text-gray-500">
+            <h3 className="font-ligth text-sm text-gray-700">
+              {truncateToWords(product.title, 2)}
+            </h3>
+          </Link>
+          <span className=" text-sm text-gray-700">${product.price}</span>
+        </div>
+        <div className="flex justify-between items-center">
+          <p className=" text-[12px] text-gray-600">
+            Size {product.sizes[0].toUpperCase()}, Black
+          </p>
+
           <LikeButton like={like} setLike={setLike} />
         </div>
-
-        <span className="font-ligth text-md">${product.price}</span>
       </div>
     </article>
   );

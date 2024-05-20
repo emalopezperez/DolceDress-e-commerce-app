@@ -3,7 +3,6 @@ import { Dialog, Transition } from "@headlessui/react";
 import { X } from "lucide-react";
 import MenuCategoryMobil from "./MenuCategoryMobil";
 import { PropsMenuMobil } from "../interfaces/nav";
-import Profile from "./Profile";
 import Link from "next/link";
 
 export default function MenuMobil({

@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Logo from "./components/Logo";
 import Profile from "./components/Profile";
@@ -8,7 +9,7 @@ import { AlignJustify, X, ShoppingCart, Search } from "lucide-react";
 import { useUIStore } from "@/store/ui/ui-store";
 import { SubMenu } from "./interfaces/nav";
 import ButtonCart from "./components/ButtonCart";
-import { useState } from "react";
+
 import { MenuCategory } from "./components/MenuCategory";
 
 const menuItems = [
