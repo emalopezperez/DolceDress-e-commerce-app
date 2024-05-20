@@ -91,6 +91,7 @@ export default function Collections() {
   return (
     <Container>
       <Titles name="Nuestros productos" />
+
       <div className="flex pb-2 border-b border-gray-200 mb-6 ">
         <HeaderFilters
           filter={filter}

@@ -9,7 +9,7 @@ export default function AddressPage() {
     <Container>
       <Titles name="Direccion" />
 
-      <div className="mx-32">
+      <div className=" mx-0 md:mx-0 lg:mx-0 xl:mx-32">
         <div className="pb-2">
           <Breadcrumbs />
         </div>
