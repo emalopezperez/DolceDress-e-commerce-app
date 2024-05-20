@@ -13,7 +13,7 @@ export default function CheckoutPage() {
       <Container>
         <Titles name="Verificar orden de compra" />
 
-        <div className="mx-32">
+        <div className="mx-0 md:mx-0 lg:mx-0 xl:mx-32">
           <div className="pb-2">
             <Breadcrumbs />
           </div>

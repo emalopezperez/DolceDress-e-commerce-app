@@ -20,7 +20,7 @@ export default function OrderPage({ params }: PropsOrder) {
     <div className="  w-full mb-2">
       <Container>
         <Titles name={`Orden #${id}`} />
-        <div className="mx-32">
+        <div className="mx-0 md:mx-0 lg:mx-0 xl:mx-32">
           <div className="pb-2 divide-gray-200  border-b border-gray-200 mb-4">
             <Breadcrumbs />
           </div>

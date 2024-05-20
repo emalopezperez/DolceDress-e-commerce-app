@@ -78,7 +78,7 @@ export default function Header({ categoryProducts }: PropsNav) {
             <Logo />
           </div>
 
-          <div className="lg:flex hidden pr-10">
+          <div className="sm:flex hidden pr-10">
             <MenuCategory categoryProducts={categoryProducts} />
           </div>
 

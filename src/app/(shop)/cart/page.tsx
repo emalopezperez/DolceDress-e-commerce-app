@@ -12,7 +12,7 @@ export default function CartPage() {
     <div className="  w-full mb-2">
       <Container>
         <Titles name="Carrito de compras" />
-        <div className="mx-32">
+        <div className=" mx-0 md:mx-0 lg:mx-0 xl:mx-32">
           <div className="pb-2">
             <Breadcrumbs />
           </div>
