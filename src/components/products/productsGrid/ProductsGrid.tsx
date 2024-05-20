@@ -1,6 +1,7 @@
 import CardProductGrid from "../cardProduct/CardProductGrid";
-
+import ProductSkeleton from "../productSkeleton/ProductSkeleton";
 import { Product } from "@/interfaces/product.interface";
+import EmptyState from "../emptyState/EmptyState";
 
 interface PropsProductsGrid {
   products: Product[];
@@ -8,10 +9,16 @@ interface PropsProductsGrid {
 
 const ProductsGrid = ({ products }: PropsProductsGrid) => {
   return (
-    <section className="grid grid-cols-[repeat(auto-fit,_minmax(min(250px,100%),_1fr))] gap-3 md:gap-10 ">
-      {products.map((product) => (
-        <CardProductGrid product={product} key={product.slug} />
-      ))}
+    <section className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-5 gap-8 mb-10">
+      {products === null ? (
+        new Array(12).fill(null).map((_, i) => <ProductSkeleton key={i} />)
+      ) : products.length === 0 ? (
+        <EmptyState />
+      ) : (
+        products.map((product) => (
+          <CardProductGrid product={product} key={product.slug} />
+        ))
+      )}
     </section>
   );
 };

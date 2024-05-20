@@ -1,4 +1,4 @@
-import HeaderTitles from "@/components/ui/headerTitles/HeaderTitles";
+import Titles from "@/components/ui/titles/Titles";
 import InfoProductsCart from "@/components/cart/infoProductsCart/InfoProductsCart";
 import OrderSummary from "@/components/cart/orderSummary/OrderSummary";
 import Container from "@/components/ui/container/Container";
@@ -10,7 +10,7 @@ export default function CartPage() {
   return (
     <div className="  w-full mb-2">
       <Container>
-        <HeaderTitles name="Carrito de compras" />
+        <Titles name="Carrito de compras" />
         <div className="grid grid-cols-1 lg:grid-cols-5  mb-10 gap-2 lg:gap-24 ">
           <section className="col-span-3 ">
             <InfoProductsCart data={data} />

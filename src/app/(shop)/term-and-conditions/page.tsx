@@ -1,11 +1,11 @@
 import Container from "@/components/ui/container/Container";
-import HeaderTitles from "@/components/ui/headerTitles/HeaderTitles";
+import Titles from "@/components/ui/titles/Titles";
 
 export default function TermAndConditionsPage() {
   return (
     <div className="">
       <Container>
-        <HeaderTitles name="Terminos y condiciones" />
+        <Titles name="Terminos y condiciones" />
 
         <div className="mx-14">
           <h1>Terminos y condiciones</h1>

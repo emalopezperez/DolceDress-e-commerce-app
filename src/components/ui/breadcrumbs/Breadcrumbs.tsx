@@ -6,7 +6,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/shadcn-ui/breadcrumb";
 
@@ -33,9 +32,11 @@ const Breadcrumbs = () => {
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               {pathname === page.url ? (
-                <span>{page.name}</span>
+                <span className="text-gray-300">{page.name}</span>
               ) : (
-                <BreadcrumbLink href={page.url}>{page.name}</BreadcrumbLink>
+                <BreadcrumbLink className="text-gray-900" href={page.url}>
+                  {page.name}
+                </BreadcrumbLink>
               )}
             </BreadcrumbItem>
           </>

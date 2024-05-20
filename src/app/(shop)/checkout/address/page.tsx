@@ -1,12 +1,12 @@
 import FormAddress from "@/components/address/formAddress/FormAddress";
 import Container from "@/components/ui/container/Container";
-import HeaderTitles from "@/components/ui/headerTitles/HeaderTitles";
+import Titles from "@/components/ui/titles/Titles";
 import Image from "next/image";
 
 export default function AddressPage() {
   return (
     <Container>
-      <HeaderTitles name="Direccion" />
+      <Titles name="Direccion" />
       <section className="w-full grid grid-cols-1 lg:grid-cols-5 mb-4 gap-10 ">
         <div className="col-span-1 lg:col-span-2 ">
           <div className="w-full h-full relative">

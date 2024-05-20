@@ -7,7 +7,7 @@ export interface Product {
   slug: string;
   tags: string[];
   title: string;
-  type: ValidTypes;
+  type: string;
   gender: "men" | "women" | "kid" | "unisex";
 }
 

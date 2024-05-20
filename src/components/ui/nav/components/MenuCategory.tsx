@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import Link from "next/link";
 
@@ -36,9 +34,6 @@ export function MenuCategory({ categoryProducts }: PropsMenuCategory) {
           <NavigationMenuTrigger>Tienda</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid  gap-1 p-4 w-[300px] grid-cols-1 ">
-              <ListItem title="Tienda" href="/collections">
-                descripcion
-              </ListItem>
               {categoryProducts.map((component) => (
                 <ListItem
                   key={component.title}
