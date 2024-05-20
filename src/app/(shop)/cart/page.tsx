@@ -3,6 +3,7 @@ import InfoProductsCart from "@/components/cart/infoProductsCart/InfoProductsCar
 import OrderSummary from "@/components/cart/orderSummary/OrderSummary";
 import Container from "@/components/ui/container/Container";
 import { initialData } from "@/seed/seed";
+import Breadcrumbs from "@/components/ui/breadcrumbs/Breadcrumbs";
 
 const data = initialData.products.slice(0, 3);
 
@@ -11,13 +12,19 @@ export default function CartPage() {
     <div className="  w-full mb-2">
       <Container>
         <Titles name="Carrito de compras" />
-        <div className="grid grid-cols-1 lg:grid-cols-5  mb-10 gap-2 lg:gap-24 ">
-          <section className="col-span-3 ">
-            <InfoProductsCart data={data} />
-          </section>
+        <div className="mx-32">
+          <div className="pb-2">
+            <Breadcrumbs />
+          </div>
 
-          <div className="col-span-2 ">
-            <OrderSummary />
+          <div className="grid grid-cols-1 lg:grid-cols-5  mb-10 gap-2 lg:gap-14  ">
+            <section className="col-span-3 ">
+              <InfoProductsCart data={data} />
+            </section>
+
+            <div className="col-span-2 ">
+              <OrderSummary />
+            </div>
           </div>
         </div>
       </Container>

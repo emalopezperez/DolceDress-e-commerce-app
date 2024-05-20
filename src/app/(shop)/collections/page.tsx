@@ -11,6 +11,7 @@ import PriceFilters from "@/components/collections/Filters/priceFilters/PriceFil
 import { initialData } from "@/seed/seed";
 import CategoryFilters from "@/components/collections/Filters/categoryFilters/CategoryFilters";
 import { SideBar } from "@/components/collections/Filters/sideBar/SideBar";
+import { Filter } from "lucide-react";
 
 const SORT_OPTIONS = [
   { name: "None", value: "none" },
@@ -96,22 +97,24 @@ export default function Collections() {
           setFilter={setFilter}
           sortOptions={SORT_OPTIONS}
         />
-        <SideBar direction="left" title="Filters">
-          <div className="">
-            <CategoryFilters subCategory={subCategory} />
+        <div className="lg:hidden block">
+          <SideBar direction="left" title="Filters" Icon={Filter}>
+            <div className="">
+              <CategoryFilters subCategory={subCategory} />
 
-            <Accordion type="multiple" className="animate-none">
-              <ColorsFilters
-                colorFilters={COLOR_FILTERS}
-                handleColorChange={handleColorChange}
-              />
-              <SizeFilters
-                sizeFilters={SIZE_FILTERS}
-                handleSizeChange={handleSizeChange}
-              />
-            </Accordion>
-          </div>
-        </SideBar>
+              <Accordion type="multiple" className="animate-none">
+                <ColorsFilters
+                  colorFilters={COLOR_FILTERS}
+                  handleColorChange={handleColorChange}
+                />
+                <SizeFilters
+                  sizeFilters={SIZE_FILTERS}
+                  handleSizeChange={handleSizeChange}
+                />
+              </Accordion>
+            </div>
+          </SideBar>
+        </div>
       </div>
       <section className=" grid  grid-cols-1 md:grid-cols-4 gap-4 ">
         <div className=" col-span-1 hidden lg:block pt-2">

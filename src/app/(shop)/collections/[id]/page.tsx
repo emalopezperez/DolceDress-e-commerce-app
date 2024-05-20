@@ -12,6 +12,7 @@ import SizeFilters from "@/components/collections/Filters/sizeFilters/SizeFilter
 import ProductsGrid from "@/components/products/productsGrid/ProductsGrid";
 import { initialData } from "@/seed/seed";
 import { SideBar } from "@/components/collections/Filters/sideBar/SideBar";
+import { Filter } from "lucide-react";
 
 interface PropsCategory {
   params: {
@@ -118,22 +119,24 @@ export default function CollectionPage({ params }: PropsCategory) {
           setFilter={setFilter}
           sortOptions={SORT_OPTIONS}
         />
-        <SideBar direction="left" title="Filters">
-          <div className="">
-            <CategoryFilters subCategory={subCategory} />
+        <div className="lg:hidden block">
+          <SideBar direction="left" title="Filters" Icon={Filter}>
+            <div className="">
+              <CategoryFilters subCategory={subCategory} />
 
-            <Accordion type="multiple" className="animate-none">
-              <ColorsFilters
-                colorFilters={COLOR_FILTERS}
-                handleColorChange={handleColorChange}
-              />
-              <SizeFilters
-                sizeFilters={SIZE_FILTERS}
-                handleSizeChange={handleSizeChange}
-              />
-            </Accordion>
-          </div>
-        </SideBar>
+              <Accordion type="multiple" className="animate-none">
+                <ColorsFilters
+                  colorFilters={COLOR_FILTERS}
+                  handleColorChange={handleColorChange}
+                />
+                <SizeFilters
+                  sizeFilters={SIZE_FILTERS}
+                  handleSizeChange={handleSizeChange}
+                />
+              </Accordion>
+            </div>
+          </SideBar>
+        </div>
       </div>
 
       <section className=" grid  grid-cols-1 md:grid-cols-4 gap-4 ">
