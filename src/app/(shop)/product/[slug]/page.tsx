@@ -24,24 +24,24 @@ export default function ProductPage({ params }: PropsProduct) {
   return (
     <div className="lg:pt-24 pt-16 pb-20 ">
       <Container>
-        <div className="mb-2 ">
-          <BreadcrumbsProduct type={product.type} name={product.title} />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-0 ">
-          <div className="col-span-2  bg-white">
-            <SliderProduct
-              images={product.images.slice(0, 4)}
-              title={product.title}
-            />
+        <div className=" mx-0 md:mx-0 lg:mx-0 xl:mx-32">
+          <div className="pb-3 ">
+            <BreadcrumbsProduct type={product.type} name={product.title} />
           </div>
 
-          <div className=" col-span-2 bg-white ">
-            <DetailProduct info={product} />
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-14 lg:gap-0 ">
+            <div className="lg:col-span-3 col-span-1">
+              <SliderProduct
+                images={product.images.slice(0, 4)}
+                title={product.title}
+              />
+            </div>
+
+            <div className="col-span-1 lg:col-span-2 ">
+              <DetailProduct info={product} />
+            </div>
           </div>
         </div>
-
-        <ReviewsProduct />
       </Container>
     </div>
   );

@@ -1,6 +1,7 @@
 import Nav from "@/components/ui/nav/Nav";
 import SidebarCart from "@/components/cart/sidebarCart/SidebarCart";
 import { initialData } from "@/seed/seed";
+import Footer from "@/components/ui/footer/Footer";
 
 const products = initialData.products.slice(0, 3);
 const categoryProducts = initialData.categoryProducs.filter(
@@ -17,6 +18,7 @@ export default function ShopLayout({
       <Nav categoryProducts={categoryProducts} />
       <SidebarCart data={products} />
       {children}
+      <Footer />
     </>
   );
 }

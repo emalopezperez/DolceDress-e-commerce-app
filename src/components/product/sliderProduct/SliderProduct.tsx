@@ -10,6 +10,9 @@ import "swiper/css/pagination";
 import "swiper/css/thumbs";
 import { useState } from "react";
 import { placeholderImage } from "@/helpers/placeholderImage";
+import FullScreenImage from "../fullScreenImage/FullScreenImage";
+import { SideBar } from "@/components/collections/Filters/sideBar/SideBar";
+import { Filter } from "lucide-react";
 
 interface PropsSliderProduct {
   images: string[];
@@ -37,7 +40,7 @@ const SliderProduct = ({ images, title }: PropsSliderProduct) => {
                 height={400}
                 src={`/products/${image}`}
                 alt={title}
-                className=" object-cover  cursor-pointer  "
+                className=" object-cover  cursor-pointer "
                 placeholder="blur"
                 blurDataURL={placeholderImage}
               />
@@ -70,6 +73,8 @@ const SliderProduct = ({ images, title }: PropsSliderProduct) => {
                   placeholder="blur"
                   blurDataURL={placeholderImage}
                 />
+
+                <FullScreenImage images={images} startIndex={index} />
               </div>
             </SwiperSlide>
           ))}
