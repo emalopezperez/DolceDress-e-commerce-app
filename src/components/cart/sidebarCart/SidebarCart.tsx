@@ -94,7 +94,7 @@ export default function SidebarCart({ data }: PropsSidebar) {
                                     </p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
-                                    <div className="pt-1">
+                                    <div className="pt-1 ">
                                       <SelectorQuantity
                                         quantity={quantity}
                                         setQuantity={setQuantity}
@@ -117,7 +117,7 @@ export default function SidebarCart({ data }: PropsSidebar) {
                         </div>
                       </div>
 
-                      <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
+                      <div className="border-t border-gray-200 px-4 py-6 sm:px-6 mt-4 ">
                         <div className="flex justify-between text-base font-medium text-gray-900">
                           <p>Subtotal</p>
                           <p>$262.00</p>
@@ -134,7 +134,7 @@ export default function SidebarCart({ data }: PropsSidebar) {
                             Ver carrito
                           </Link>
                         </div>
-                        <div className=" mb-14">
+                        <div className=" mb-8">
                           <Link
                             onClick={() => closeMenu()}
                             href="/checkout/address"
