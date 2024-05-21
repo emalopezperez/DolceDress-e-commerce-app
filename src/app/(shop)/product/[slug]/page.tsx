@@ -23,7 +23,7 @@ export default function ProductPage({ params }: PropsProduct) {
   }
 
   return (
-    <div className="lg:pt-24 pt-16">
+    <div className="lg:pt-24 pt-16 ">
       <Container>
         <div className=" mx-0 md:mx-0 lg:mx-0 xl:mx-32">
           <div className="pb-3 ">
