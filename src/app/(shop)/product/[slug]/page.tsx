@@ -1,8 +1,10 @@
+import Title from "@/components/home/title/Title";
 import BreadcrumbsProduct from "@/components/product/breadcrumbsProduct/BreadcrumbsProduct";
 import DetailProduct from "@/components/product/detailProduct/DetailProduct";
 import InfoProduct from "@/components/product/infoProduct/InfoProduct";
 import InfoProductMobil from "@/components/product/infoProduct/InfoProductMobil";
 import SliderProduct from "@/components/product/sliderProduct/SliderProduct";
+import CarouselProducts from "@/components/ui/carouselProducts/CarouselProducts";
 import Container from "@/components/ui/container/Container";
 import { initialData } from "@/seed/seed";
 import { notFound } from "next/navigation";
@@ -17,6 +19,9 @@ export default function ProductPage({ params }: PropsProduct) {
   const { slug } = params;
 
   const product = initialData.products.find((element) => element.slug === slug);
+  const productFilter = initialData.products.filter(
+    (element) => element.type === product?.type.slice(0, 15)
+  );
 
   if (!product) {
     notFound();
@@ -45,6 +50,17 @@ export default function ProductPage({ params }: PropsProduct) {
 
           <InfoProduct product={product} />
           <InfoProductMobil product={product} />
+
+          <div className=" mt-8 lg:mt-16">
+            <Title
+              name="Productos similares"
+              subtitle="Los productos mas comprados"
+            />
+          </div>
+
+          <div className="mt-0 lg:mt-2 w-full h-full ">
+            <CarouselProducts products={productFilter} />
+          </div>
         </div>
       </Container>
     </div>
