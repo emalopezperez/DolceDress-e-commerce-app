@@ -50,7 +50,7 @@ function classNames(...classes: string[]) {
 
 export default function ReviewsProduct() {
   return (
-    <div className="w-full lg:grid  lg:grid-cols-12 lg:gap-x-8 mt-16 bg-white p-4">
+    <div className="w-full lg:grid  lg:grid-cols-12 lg:gap-x-8  bg-white ">
       <div className="lg:col-span-4">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">
           Reviews

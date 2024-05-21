@@ -1,5 +1,4 @@
 import { CreditCard } from "lucide-react";
-import Link from "next/link";
 
 const OrderSummary = () => {
   return (

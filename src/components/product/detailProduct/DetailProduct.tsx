@@ -74,7 +74,9 @@ const DetailProduct = ({ info }: PropsDetailProduct) => {
 
       <div>
         <h3 className="text-lg">Descripcion del producto</h3>
-        <p className="text-gray-600 text-sm mt-2">{info.description}</p>
+        <p className="text-gray-600 text-sm font-light tracking-widest leading-normal mt-2">
+          {info.description}
+        </p>
       </div>
 
       <div className="flex items-center gap-3">

@@ -1,6 +1,7 @@
 import BreadcrumbsProduct from "@/components/product/breadcrumbsProduct/BreadcrumbsProduct";
 import DetailProduct from "@/components/product/detailProduct/DetailProduct";
-import ReviewsProduct from "@/components/product/reviews/Reviews";
+import InfoProduct from "@/components/product/infoProduct/InfoProduct";
+import InfoProductMobil from "@/components/product/infoProduct/InfoProductMobil";
 import SliderProduct from "@/components/product/sliderProduct/SliderProduct";
 import Container from "@/components/ui/container/Container";
 import { initialData } from "@/seed/seed";
@@ -22,7 +23,7 @@ export default function ProductPage({ params }: PropsProduct) {
   }
 
   return (
-    <div className="lg:pt-24 pt-16 pb-20 ">
+    <div className="lg:pt-24 pt-16">
       <Container>
         <div className=" mx-0 md:mx-0 lg:mx-0 xl:mx-32">
           <div className="pb-3 ">
@@ -41,6 +42,9 @@ export default function ProductPage({ params }: PropsProduct) {
               <DetailProduct info={product} />
             </div>
           </div>
+
+          <InfoProduct product={product} />
+          <InfoProductMobil product={product} />
         </div>
       </Container>
     </div>
