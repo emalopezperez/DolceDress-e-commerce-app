@@ -7,6 +7,7 @@ import { Product } from "@/interfaces/product.interface";
 import { X } from "lucide-react";
 import { useUIStore } from "@/store/ui/ui-store";
 import SelectorQuantity from "@/components/cart/selectorQuantity/SelectorQuantity";
+import EmptyCart from "../emptyCart/EmptyCart";
 
 interface PropsSidebar {
   data: Product[];
@@ -115,32 +116,32 @@ export default function SidebarCart({ data }: PropsSidebar) {
                           </ul>
                         </div>
                       </div>
-                    </div>
 
-                    <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-                      <div className="flex justify-between text-base font-medium text-gray-900">
-                        <p>Subtotal</p>
-                        <p>$262.00</p>
-                      </div>
-                      <p className="mt-0.5 text-sm text-gray-500">
-                        Shipping and taxes calculated at checkout.
-                      </p>
+                      <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
+                        <div className="flex justify-between text-base font-medium text-gray-900">
+                          <p>Subtotal</p>
+                          <p>$262.00</p>
+                        </div>
+                        <p className="mt-0.5 text-sm text-gray-500">
+                          Shipping and taxes calculated at checkout.
+                        </p>
 
-                      <div className="mt-6 mb-2">
-                        <Link
-                          onClick={() => closeMenu()}
-                          href="/cart"
-                          className="flex items-center justify-center rounded-md border border-gray-500  px-6 py-3 text-base font-medium text-gray-900 b shadow-sm hover:bg-gray-100 ">
-                          Ver carrito
-                        </Link>
-                      </div>
-                      <div className=" mb-14">
-                        <Link
-                          onClick={() => closeMenu()}
-                          href="/checkout/address"
-                          className="flex items-center justify-center rounded-md border border-transparent bg-[#373f39]/90 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-[#373f39]/80 ">
-                          Checkout
-                        </Link>
+                        <div className="mt-6 mb-2">
+                          <Link
+                            onClick={() => closeMenu()}
+                            href="/cart"
+                            className="flex items-center justify-center rounded-md border border-gray-500  px-6 py-3 text-base font-medium text-gray-900 b shadow-sm hover:bg-gray-100 ">
+                            Ver carrito
+                          </Link>
+                        </div>
+                        <div className=" mb-14">
+                          <Link
+                            onClick={() => closeMenu()}
+                            href="/checkout/address"
+                            className="flex items-center justify-center rounded-md border border-transparent bg-[#373f39]/90 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-[#373f39]/80 ">
+                            Checkout
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>

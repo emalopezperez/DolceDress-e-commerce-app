@@ -9,7 +9,6 @@ import { AlignJustify, X, ShoppingCart, Search } from "lucide-react";
 import { useUIStore } from "@/store/ui/ui-store";
 import { SubMenu } from "./interfaces/nav";
 import ButtonCart from "./components/ButtonCart";
-
 import { MenuCategory } from "./components/MenuCategory";
 
 const menuItems = [

@@ -69,7 +69,7 @@ const OrderSummaryCheckout = () => {
         </span>
       </p>
 
-      <div className="mt-1 ">
+      <div className="mt-2 mb-2">
         <Link
           href="/orders/12"
           className="flex items-center justify-center rounded-md border border-transparent bg-[#373f39]/90 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-[#373f39]/80 ">
