@@ -15,7 +15,7 @@ interface PropsTableInfo {
 
 const TableInfo = ({ data }: PropsTableInfo) => {
   return (
-    <TabsContent value="infoAdi" className=" w-full mt-0">
+    <TabsContent value="infoAdi" className=" w-full mt-0 mb-12">
       <Table className="border-t border-gray-200 ">
         <TableHeader className="bg-gray-50/50">
           <TableRow>
