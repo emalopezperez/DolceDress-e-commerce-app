@@ -1,16 +1,15 @@
 import Hero from "@/components/home/hero/Hero";
 import PromoSection from "@/components/home/promoSection/PromoSection";
 import Container from "@/components/ui/container/Container";
-import { initialData } from "@/seed/seed";
 import Title from "@/components/home/title/Title";
 import ProductsGrid from "@/components/products/productsGrid/ProductsGrid";
 import Promo from "@/components/ui/promo/Promo";
 import CarouselProducts from "@/components/ui/carouselProducts/CarouselProducts";
+import { getProducts } from "@/services/shopify/products";
 
-const products = initialData.products.slice(0, 10);
-const productsFilter = initialData.products.slice(0, 15);
+export default async function Home() {
+  const products = await getProducts();
 
-export default function Home() {
   return (
     <>
       <Hero />
@@ -22,7 +21,7 @@ export default function Home() {
             subtitle="Alguno de nuestros productos"
           />
         </div>
-        <div className="mt-0 lg:mt-12 ">
+        <div className="mt-2 lg:mt-8 ">
           <ProductsGrid products={products} />
         </div>
         <Promo />
@@ -33,7 +32,7 @@ export default function Home() {
           />
         </div>
         <div className="mt-0 lg:mt-4 w-full h-full ">
-          <CarouselProducts products={productsFilter} />
+          <CarouselProducts products={products} />
         </div>
       </Container>
     </>

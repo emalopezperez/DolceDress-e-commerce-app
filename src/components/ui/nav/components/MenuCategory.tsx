@@ -12,13 +12,13 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/shadcn-ui/navigation-menu";
-import { SubMenu } from "../interfaces/nav";
+import { Collection } from "@/models/Collection";
 
 interface PropsMenuCategory {
-  categoryProducts: SubMenu[];
+  categories: Collection[];
 }
 
-export function MenuCategory({ categoryProducts }: PropsMenuCategory) {
+export function MenuCategory({ categories }: PropsMenuCategory) {
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -34,11 +34,11 @@ export function MenuCategory({ categoryProducts }: PropsMenuCategory) {
           <NavigationMenuTrigger>Tienda</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid  gap-1 p-4 w-[300px] grid-cols-1 ">
-              {categoryProducts.map((component) => (
+              {categories.map((category) => (
                 <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.path}>
+                  key={category.id}
+                  title={category.title}
+                  href={`/collections/${category.title}`}>
                   descripcion
                 </ListItem>
               ))}

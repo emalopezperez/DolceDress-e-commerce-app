@@ -1,62 +1,62 @@
-import { useState } from "react";
 import { PropsMenuMobil } from "../interfaces/nav";
-import { ChevronDown } from "lucide-react";
 import Link from "next/link";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../../shadcn-ui/accordion";
+
+import React from "react";
 
 const MenuCategoryMobil = ({
   menuItems,
-  categoryProducts,
+  categories,
   setOpenMenuMobil,
 }: PropsMenuMobil) => {
-  const [openSubMenu, setOpenSubMenu] = useState(false);
   return (
-    <div className="space-y-1  pb-3  bg-100">
-      {menuItems.map((item) => (
-        <div key={item.title}>
-          {item.subMenu ? (
-            <div className="">
-              <div className="flex gap-3 items-center border-b border-gray-400 pl-1 pr-1 hover:bg-gray-100">
-                <Link
-                  href={item.path}
-                  onClick={() => setOpenMenuMobil(false)}
-                  className="w-full  text-gray-700 inline-flex space-x-2 py-3  "
-                  key={item.title}>
+    <ul className="space-y-1">
+      {menuItems.map((item) =>
+        item.subMenu ? (
+          <Accordion
+            type="multiple"
+            className="animate-none block lg:hidden w-full"
+            key={item.title}>
+            <AccordionItem value="tienda">
+              <AccordionTrigger className="py-3 text-sm text-gray-400 hover:text-gray-500">
+                <span className="font-medium text-md text-gray-900 pl-2">
                   {item.title}
-                </Link>
+                </span>
+              </AccordionTrigger>
 
-                <button
-                  onClick={() => setOpenSubMenu(!openSubMenu)}
-                  className="text-gray-700 py-3">
-                  <ChevronDown className="w-5 h-5" />
-                </button>
-              </div>
-
-              {openSubMenu
-                ? categoryProducts.map((item) => (
-                    <Link
-                      href={item.path}
-                      onClick={() => setOpenMenuMobil(false)}
-                      className="w-full  inline-flex space-x-2 items-center 
- py-3 hover:bg-white/5 transition
-  ease-linear duration-150  border-b border-gray-400  text-gray-700 bg-gray-50 pl-5"
-                      key={item.title}>
-                      {item.title}
-                    </Link>
-                  ))
-                : ""}
-            </div>
-          ) : (
+              <AccordionContent className="animate-none flex flex-col pl-6">
+                <ul className="">
+                  {categories.map((category) => (
+                    <li key={category.id} className="">
+                      <Link
+                        onClick={() => setOpenMenuMobil(false)}
+                        href={`/collections/${category.title}`}
+                        className="w-full inline-flex space-x-2 items-center py-3 transition ease-linear duration-150 text-gray-700 pl-1">
+                        {category.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        ) : (
+          <li key={item.title}>
             <Link
               href={item.path}
               onClick={() => setOpenMenuMobil(false)}
-              className="w-full inline-flex space-x-2 items-center  py-3  transition ease-linear duration-150 text-gray-700 border-b border-gray-400 hover:bg-gray-100 pl-1 "
-              key={item.title}>
+              className="w-full inline-flex space-x-2 items-center py-3 border-b border-gray-200 text-gray-900 pl-2">
               {item.title}
             </Link>
-          )}
-        </div>
-      ))}
-    </div>
+          </li>
+        )
+      )}
+    </ul>
   );
 };
 

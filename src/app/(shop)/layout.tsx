@@ -2,20 +2,20 @@ import Nav from "@/components/ui/nav/Nav";
 import SidebarCart from "@/components/cart/sidebarCart/SidebarCart";
 import { initialData } from "@/seed/seed";
 import Footer from "@/components/ui/footer/Footer";
+import { getCollections } from "@/services/shopify/collections";
 
 const products = initialData.products.slice(0, 3);
-const categoryProducts = initialData.categoryProducs.filter(
-  (category) => category
-);
 
-export default function ShopLayout({
+export default async function ShopLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const collections = await getCollections();
+
   return (
     <>
-      <Nav categoryProducts={categoryProducts} />
+      <Nav categories={collections} />
       <SidebarCart data={products} />
       {children}
       <Footer />

@@ -7,8 +7,8 @@ import {
 
 import Description from "./components/Description";
 import TableInfo from "./components/TableInfo";
-import { Product } from "../../../interfaces/product.interface";
 import ReviewsProduct from "./components/reviews/Reviews";
+import { Product } from "@/models/Product";
 
 interface PropsInfoProduct {
   product: Product;
@@ -25,7 +25,7 @@ const InfoProduct = ({ product }: PropsInfoProduct) => {
         <TabsTrigger value="envioydevo">Política de Devoluciones</TabsTrigger>
         <TabsTrigger value="reviews">Producto reviews</TabsTrigger>
       </TabsList>
-      <Description text={product.description} />
+      <Description text={product.body_html} />
       <TableInfo data={product} />
       <TabsContent value="envioydevo" className="  w-full ">
         <h3 className="pb-2">Política de Devoluciones</h3>

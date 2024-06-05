@@ -13,14 +13,18 @@ import { placeholderImage } from "@/helpers/placeholderImage";
 import FullScreenImage from "../fullScreenImage/FullScreenImage";
 import { SideBar } from "@/components/collections/Filters/sideBar/SideBar";
 import { Filter } from "lucide-react";
+import { ImageProduct } from "@/models/Product";
 
 interface PropsSliderProduct {
-  images: string[];
+  images: ImageProduct[];
   title: string;
 }
 
 const SliderProduct = ({ images, title }: PropsSliderProduct) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperObject>();
+
+  const imagesFiltered = images.slice(0, 4);
+
   return (
     <div className=" grid lg:grid-cols-5 grid-cols-1 gap-2">
       <div className=" hidden lg:grid lg:col-span-1 ">
@@ -33,12 +37,12 @@ const SliderProduct = ({ images, title }: PropsSliderProduct) => {
           watchSlidesProgress={true}
           modules={[FreeMode, Thumbs]}
           className="mySwiper">
-          {images.map((image, index) => (
+          {imagesFiltered.map((image, index) => (
             <SwiperSlide key={index}>
               <Image
                 width={400}
                 height={400}
-                src={`/products/${image}`}
+                src={image.src}
                 alt={title}
                 className=" object-cover  cursor-pointer "
                 placeholder="blur"
@@ -62,12 +66,12 @@ const SliderProduct = ({ images, title }: PropsSliderProduct) => {
           }}
           modules={[FreeMode, Thumbs, Pagination]}
           className="mySwiper2">
-          {images.map((image, index) => (
+          {imagesFiltered.map((image, index) => (
             <SwiperSlide key={index}>
               <div className="h-[300px] md:h-[550px] w-full relative">
                 <Image
                   fill
-                  src={`/products/${image}`}
+                  src={image.src}
                   alt={title}
                   className="  cursor-pointer h-full w-full object-cover "
                   placeholder="blur"

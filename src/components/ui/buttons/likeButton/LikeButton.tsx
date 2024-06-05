@@ -10,8 +10,9 @@ const LikeButton = ({ like, setLike }: PropsLikeButton) => {
     <button onClick={() => setLike(!like)} className="">
       <span>
         <Heart
-          className={`w-5 h-5 hover:fill-red-900 hover:text-white  ${
-            like ? "text-white fill-red-900 " : "text-gray-900 "
+          strokeWidth={1}
+          className={`w-6 h-6 border-fill text-gray-800  fill-white hover:fill-red-700 font-light ${
+            like && " fill-red-700 "
           }`}
         />
       </span>
