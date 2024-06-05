@@ -9,13 +9,21 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/shadcn-ui/breadcrumb";
+import { getCollectionProducts } from "@/services/shopify/collections";
 
 interface PropsBreadcrumbs {
   type: string;
   name: string;
+  id: string;
 }
 
-export default function BreadcrumbsProduct({ type, name }: PropsBreadcrumbs) {
+export default async function BreadcrumbsProduct({
+  type,
+  name,
+  id,
+}: PropsBreadcrumbs) {
+  const collection = await getCollectionProducts(id);
+
   return (
     <nav className="flex pt-6 pb-1">
       <Breadcrumb>
@@ -26,12 +34,12 @@ export default function BreadcrumbsProduct({ type, name }: PropsBreadcrumbs) {
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink href={`/collections/${type}`}>
-              {fcCapitalizeFirstLetter(type)}
+              {type}
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>{truncateToWords(name, 2)}</BreadcrumbPage>
+            <BreadcrumbPage>{name}</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>

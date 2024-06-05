@@ -7,9 +7,9 @@ import Profile from "./components/Profile";
 import MenuMobil from "./components/MenuMobil";
 import { AlignJustify, X, ShoppingCart, Search } from "lucide-react";
 import { useUIStore } from "@/store/ui/ui-store";
-import { SubMenu } from "./interfaces/nav";
 import ButtonCart from "./components/ButtonCart";
 import { MenuCategory } from "./components/MenuCategory";
+import { Collection } from "@/models/Collection";
 
 const menuItems = [
   { id: 1, path: "/", title: "Inicio" },
@@ -33,10 +33,10 @@ const menuItems = [
 ];
 
 interface PropsNav {
-  categoryProducts: SubMenu[];
+  categories: Collection[];
 }
 
-export default function Header({ categoryProducts }: PropsNav) {
+export default function Header({ categories }: PropsNav) {
   const currentPath = usePathname();
   const [openMenuMobil, setOpenMenuMobil] = useState(false);
   const openSideMenu = useUIStore((state) => state.openSideMenu);
@@ -78,7 +78,7 @@ export default function Header({ categoryProducts }: PropsNav) {
           </div>
 
           <div className="sm:flex hidden pr-10">
-            <MenuCategory categoryProducts={categoryProducts} />
+            <MenuCategory categories={categories} />
           </div>
 
           <div className="gap-6 items-center hidden  sm:flex">
@@ -103,7 +103,7 @@ export default function Header({ categoryProducts }: PropsNav) {
         setOpenMenuMobil={setOpenMenuMobil}
         menuItems={menuItems}
         currentPath={currentPath}
-        categoryProducts={categoryProducts}
+        categories={categories}
       />
     </div>
   );

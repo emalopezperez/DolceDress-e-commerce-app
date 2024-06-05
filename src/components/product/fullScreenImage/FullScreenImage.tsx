@@ -11,9 +11,10 @@ import { placeholderImage } from "@/helpers/placeholderImage";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/thumbs";
+import { ImageProduct } from "@/models/Product";
 
 interface PropsFullScreenImage {
-  images: string[];
+  images: ImageProduct[];
   startIndex: number;
 }
 
@@ -61,7 +62,7 @@ const FullScreenImage = ({ images, startIndex = 0 }: PropsFullScreenImage) => {
                 <div className="w-full h-full relative">
                   <Image
                     fill
-                    src={`/products/${image}`}
+                    src={image}
                     alt="producto"
                     className="cursor-pointer h-full w-full object-cover"
                     placeholder="blur"

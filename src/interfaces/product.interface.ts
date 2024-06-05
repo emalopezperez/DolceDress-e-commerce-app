@@ -1,15 +1,14 @@
+export type ValidSizes = "XS" | "S" | "M" | "L" | "XL" | "XXL" | "XXXL";
+
+
 export interface Product {
   description: string;
+  slug: string;
+  title: string;
+  price: number;
+  tags: string[];
+  category: string;
   images: string[];
   inStock: number;
-  price: number;
-  sizes: ValidSizes[];
-  slug: string;
-  tags: string[];
-  title: string;
-  type: string;
-  gender: "men" | "women" | "kid" | "unisex";
-}
 
-export type ValidSizes = "XS" | "S" | "M" | "L" | "XL" | "XXL" | "XXXL";
-export type ValidTypes = "shirts" | "pants" | "hoodies" | "hats";
+}

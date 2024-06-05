@@ -4,9 +4,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/shadcn-ui/accordion";
-import { Product } from "@/interfaces/product.interface";
 import ReviewsProduct from "./components/reviews/Reviews";
-import TableInfo from "./components/TableInfo";
+import { Product } from "@/models/Product";
 
 interface PropsInfoProductMobil {
   product: Product;
@@ -22,16 +21,10 @@ const InfoProductMobil = ({ product }: PropsInfoProductMobil) => {
           <span className="font-medium text-gray-900">Product description</span>
         </AccordionTrigger>
 
-        <AccordionContent className="pt-6 animate-none flex flex-col gap-2">
+        <AccordionContent className=" animate-none flex flex-col gap-2">
           <h3>Product info</h3>
           <p className="text-gray-700 text-sm font-light tracking-widest leading-relaxed">
-            {product.description}
-          </p>
-          <p className="text-gray-700 text-sm font-light tracking-widest leading-relaxed">
-            {product.description}
-          </p>
-          <p className="text-gray-700 text-sm font-light tracking-widest leading-relaxed">
-            {product.description}
+            {product.body_html}
           </p>
         </AccordionContent>
       </AccordionItem>
@@ -43,7 +36,7 @@ const InfoProductMobil = ({ product }: PropsInfoProductMobil) => {
           </span>
         </AccordionTrigger>
 
-        <AccordionContent className="pt-6 animate-none flex flex-col gap-2">
+        <AccordionContent className="animate-none flex flex-col gap-2">
           <h3 className="pb-2">Política de Devoluciones</h3>
           <p className="text-gray-700 text-sm font-light tracking-widest leading-relaxed">
             Política de Devoluciones Despacho: Los pedidos se despachan dentro
@@ -79,7 +72,7 @@ const InfoProductMobil = ({ product }: PropsInfoProductMobil) => {
           <span className="font-medium text-gray-900">Products reviews</span>
         </AccordionTrigger>
 
-        <AccordionContent className="pt-6 animate-none flex flex-col gap-2">
+        <AccordionContent className=" animate-none flex flex-col gap-2">
           <ReviewsProduct />
         </AccordionContent>
       </AccordionItem>

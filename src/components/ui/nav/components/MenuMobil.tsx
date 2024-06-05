@@ -10,7 +10,7 @@ export default function MenuMobil({
   setOpenMenuMobil,
   menuItems,
   currentPath,
-  categoryProducts,
+  categories,
 }: PropsMenuMobil) {
   return (
     <Transition.Root show={openMenuMobil} as={Fragment}>
@@ -51,13 +51,13 @@ export default function MenuMobil({
                       <MenuCategoryMobil
                         menuItems={menuItems}
                         currentPath={currentPath}
-                        categoryProducts={categoryProducts}
+                        categories={categories}
                         setOpenMenuMobil={setOpenMenuMobil}
                       />
                       <div className="pl-1 mt-2">
                         <div className="flex items-center py-3">
                           <div className="">
-                            <div className="flex gap-4  pl-1 border-b border-gray-400 items-center py-3">
+                            <div className="flex gap-4  pl-1 border-b border-gray-200 items-center py-3">
                               <img
                                 className="h-10 w-10 rounded-full"
                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -76,17 +76,17 @@ export default function MenuMobil({
 
                             <Link
                               href="/"
-                              className="w-full inline-flex space-x-2 items-center  py-3  transition ease-linear duration-150 text-gray-700 border-b border-gray-400 hover:bg-gray-100 pl-1 ">
+                              className="w-full inline-flex space-x-2 items-center  py-3  transition ease-linear duration-150 text-gray-700 border-b border-gray-200  pl-1 ">
                               Mi perfil
                             </Link>
                             <Link
                               href="/"
-                              className="w-full inline-flex space-x-2 items-center  py-3  transition ease-linear duration-150 text-gray-700 border-b border-gray-400 hover:bg-gray-100 pl-1 ">
+                              className="w-full inline-flex space-x-2 items-center  py-3  transition ease-linear duration-150 text-gray-700 border-b border-gray-200  pl-1 ">
                               Configuraciones
                             </Link>
                             <Link
                               href="/"
-                              className="w-full inline-flex space-x-2 items-center  py-3  transition ease-linear duration-150 text-gray-700 border-b border-gray-400 hover:bg-gray-100 pl-1 ">
+                              className="w-full inline-flex space-x-2 items-center  py-3  transition ease-linear duration-150 text-gray-700 border-b border-gray-200  pl-1 ">
                               Salir de la cuenta
                             </Link>
                           </div>
