@@ -13,7 +13,9 @@ interface PropsCardProduct {
 }
 
 const CardProductGrid = ({ product }: PropsCardProduct) => {
-  const [displayImage, setDisplayImage] = useState(product.images[0].src);
+  const [displayImage, setDisplayImage] = useState(
+    product.images[0] ? product.images[0].src : ""
+  );
   const [like, setLike] = useState(false);
 
   return (
@@ -37,6 +39,12 @@ const CardProductGrid = ({ product }: PropsCardProduct) => {
         <div className="absolute bottom-[20px] lg:bottom-[20px] right-[18px] lg:right-4">
           <LikeButton like={like} setLike={setLike} />
         </div>
+
+        {product.compare_at_price && (
+          <div className="absolute top-[10px]  right-[18px] lg:right-4 bg-green-300 p-1 px-2 text-white rounded-lg text-sm">
+            <span>Sale</span>
+          </div>
+        )}
       </div>
 
       <div className="mt-4 flex flex-col gap-2">
@@ -46,14 +54,14 @@ const CardProductGrid = ({ product }: PropsCardProduct) => {
           </h3>
         </Link>
         <div className="flex justify-between items-center">
-          {product.variants[0].compare_at_price && (
+          {product.compare_at_price && (
             <span className="text-[12px] text-gray-500 line-through font-light">
-              ${product.variants[0].compare_at_price} UYU
+              ${product.compare_at_price} UYU
             </span>
           )}
 
           <span className="text-sm text-gray-600 font-light">
-            ${product.variants[0].price} UYU
+            ${product.price} UYU
           </span>
         </div>
       </div>

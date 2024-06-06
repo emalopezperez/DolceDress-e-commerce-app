@@ -6,7 +6,6 @@ import {
 } from "@/components/ui/shadcn-ui/tabs";
 
 import Description from "./components/Description";
-import TableInfo from "./components/TableInfo";
 import ReviewsProduct from "./components/reviews/Reviews";
 import { Product } from "@/models/Product";
 
@@ -21,12 +20,12 @@ const InfoProduct = ({ product }: PropsInfoProduct) => {
       className="w-full mt-16 md:flex justify-center flex-col items-center hidden">
       <TabsList className="mb-14 gap-14  bg-white border-b border-gray-300 w-full">
         <TabsTrigger value="descript">Producto descripcion</TabsTrigger>
-        <TabsTrigger value="infoAdi">Informacion adicional</TabsTrigger>
+
         <TabsTrigger value="envioydevo">Política de Devoluciones</TabsTrigger>
         <TabsTrigger value="reviews">Producto reviews</TabsTrigger>
       </TabsList>
-      <Description text={product.body_html} />
-      <TableInfo data={product} />
+      <Description text={product.desciption} />
+
       <TabsContent value="envioydevo" className="  w-full ">
         <h3 className="pb-2">Política de Devoluciones</h3>
         <p className="text-gray-700 text-sm font-light tracking-widest leading-relaxed">

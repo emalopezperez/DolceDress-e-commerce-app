@@ -11,7 +11,7 @@ import "swiper/css/thumbs";
 import { useState } from "react";
 import { placeholderImage } from "@/helpers/placeholderImage";
 import FullScreenImage from "../fullScreenImage/FullScreenImage";
-import { SideBar } from "@/components/collections/Filters/sideBar/SideBar";
+import { SideBar } from "@/components/collections/components/sideBar/SideBar";
 import { Filter } from "lucide-react";
 import { ImageProduct } from "@/models/Product";
 
