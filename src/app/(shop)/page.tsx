@@ -22,7 +22,7 @@ export default async function Home() {
           />
         </div>
         <div className="mt-2 lg:mt-8 ">
-          <ProductsGrid products={products} />
+          <ProductsGrid products={products.slice(0, 10)} />
         </div>
         <Promo />
         <div className=" mt-8 lg:mt-12">
@@ -32,7 +32,7 @@ export default async function Home() {
           />
         </div>
         <div className="mt-0 lg:mt-4 w-full h-full ">
-          <CarouselProducts products={products} />
+          <CarouselProducts products={products.slice(0, 8)} />
         </div>
       </Container>
     </>

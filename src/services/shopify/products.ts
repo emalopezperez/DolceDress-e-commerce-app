@@ -1,4 +1,3 @@
-import { Product } from "@/models/Product";
 import { env } from "@/config/env";
 import { shopifyUrls } from "./urls";
 
@@ -15,7 +14,24 @@ export const getProducts = async (id?: string) => {
 
     const { products } = await response.json();
 
-    return products || [];
+    const transformedProducts = products.map((product: any) => {
+      return {
+        id: product.id,
+        title: product.title,
+        desciption: product.body_html,
+        images: product.images,
+        image: product.images,
+        variants: product.variants,
+        handle: product.handle,
+        tags: product.tags,
+        options: product.options,
+        product_type: product.product_type,
+        price: product.variants[0].price,
+        compare_price: product.variants[0].compare_at_price,
+      };
+    });
+
+    return transformedProducts;
   } catch (error) {
     throw error;
   }
@@ -33,7 +49,24 @@ export const getProduct = async (id?: string) => {
 
     const { products } = await response.json();
 
-    return products[0];
+    const transformedProduct = products.map((product: any) => {
+      return {
+        id: product.id,
+        title: product.title,
+        desciption: product.body_html,
+        images: product.images,
+        image: product.images,
+        variants: product.variants,
+        handle: product.handle,
+        tags: product.tags,
+        options: product.options,
+        product_type: product.product_type,
+        price: product.variants[0].price,
+        compare_price: product.variants[0].compare_at_price,
+      };
+    });
+
+    return transformedProduct[0];
   } catch (error) {
     throw error;
   }

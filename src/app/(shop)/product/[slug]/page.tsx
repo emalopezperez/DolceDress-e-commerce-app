@@ -6,7 +6,6 @@ import SliderProduct from "@/components/product/sliderProduct/SliderProduct";
 import CarouselProducts from "@/components/ui/carouselProducts/CarouselProducts";
 import Container from "@/components/ui/container/Container";
 import { getProduct, getProducts } from "@/services/shopify/products";
-import { notFound } from "next/navigation";
 
 interface PropsProduct {
   params: {

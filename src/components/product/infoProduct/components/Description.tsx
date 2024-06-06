@@ -1,5 +1,6 @@
 import { TabsContent } from "@/components/ui/shadcn-ui/tabs";
 import Image from "next/image";
+import { SanitizeHTML } from "@/components/ui/sanitizeHtml/SanitizeHtml";
 
 interface PropsDescription {
   text: string;
@@ -11,16 +12,13 @@ const Description = ({ text }: PropsDescription) => {
       value="descript"
       className="grid grid-cols-1 md:grid-cols-5 w-full h-full gap-14">
       <div className="col-span-1 lg:col-span-2 flex flex-col gap-4">
-        <h3>Product info</h3>
-        <p className="text-gray-700 text-sm font-light tracking-widest leading-relaxed">
+        <h3>Descripcion</h3>
+
+        <SanitizeHTML
+          tag="p"
+          className="text-gray-700 text-sm font-light tracking-widest leading-relaxed">
           {text}
-        </p>
-        <p className="text-gray-700 text-sm font-light tracking-widest leading-relaxed">
-          {text}
-        </p>
-        <p className="text-gray-700 text-sm font-light tracking-widest leading-relaxed">
-          {text}
-        </p>
+        </SanitizeHTML>
       </div>
       <div className="col-span-3 ">
         <div className="w-full h-full relative">

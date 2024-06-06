@@ -1,12 +1,15 @@
 export interface Product {
   id: number;
   title: string;
+  desciption: string;
   body_html: string;
   vendor: string;
+  price: number
   product_type: string;
   created_at?: string;
   handle?: string;
   updated_at: string;
+  compare_at_price:number;
   published_at: string;
   template_suffix: null | string;
   published_scope: string;

@@ -3,8 +3,8 @@ import { useState } from "react";
 import LikeButton from "../../ui/buttons/likeButton/LikeButton";
 import SelectorQuantity from "../../cart/selectorQuantity/SelectorQuantity";
 import { truncateToWords } from "@/helpers/fcTruncateToTwoWords";
-import { Check } from "lucide-react";
 import { Product, VariantsProduct } from "@/models/Product";
+import { SanitizeHTML } from "@/components/ui/sanitizeHtml/SanitizeHtml";
 
 interface PropsDetailProduct {
   info: Product;
@@ -44,7 +44,7 @@ const DetailProduct = ({ info, variants }: PropsDetailProduct) => {
   };
 
   return (
-    <div className="flex flex-col md:justify-between md:gap-0 gap-8 h-full md:h-[550px] pl-0 lg:pl-14">
+    <div className="flex flex-col justify-between h-full md:gap-0 gap-4  pl-0 lg:pl-14">
       <div className="flex justify-between items-center flex-wrap gap-2">
         <h1 className="md:text-4xl tracking-tight-4 text-2xl antialiased">
           {truncateToWords(info.title, 3)}
@@ -56,7 +56,7 @@ const DetailProduct = ({ info, variants }: PropsDetailProduct) => {
         <div className="flex  items-center gap-3">
           {selectedVariant.compare_at_price && (
             <span className="text-[12px] text-gray-500 line-through font-light">
-              ${selectedVariant.compare_at_price} UYU
+              ${selectedVariant.compare_at_price}
             </span>
           )}
 
@@ -92,8 +92,10 @@ const DetailProduct = ({ info, variants }: PropsDetailProduct) => {
               onClick={() =>
                 handleSelectVariant(color, selectedVariant.option1 || "")
               }
-              className={`rounded-full p-1 w-8 h-8 px-9 flex justify-center items-center border shadow-md border-black ${
-                selectedVariant.option2 === color ? "bg-gray-300" : ""
+              className={`rounded-full p-1 h-8 px-3 text-sm flex justify-center items-center border border-gray-200 shadow-md ${
+                selectedVariant.option2 === color
+                  ? "bg-gray-800 text-white border-none"
+                  : ""
               }`}>
               <span>{color}</span>
             </button>
@@ -116,8 +118,10 @@ const DetailProduct = ({ info, variants }: PropsDetailProduct) => {
                   handleSelectVariant(selectedVariant.option2 || "", size)
                 }
                 disabled={!available}
-                className={`p-1 px-6 rounded-sm border border-gray-600 shadow-md ${
-                  selectedVariant.option1 === size ? "bg-gray-300" : ""
+                className={`p-1 px-4 rounded-sm border border-gray-200 shadow-md text-sm ${
+                  selectedVariant.option1 === size
+                    ? "bg-gray-800 text-white border-none"
+                    : ""
                 } ${!available ? "opacity-50 cursor-not-allowed" : ""}`}>
                 <span className="text-md">{size}</span>
               </button>
@@ -126,15 +130,11 @@ const DetailProduct = ({ info, variants }: PropsDetailProduct) => {
         </div>
       </div>
 
-      <div>
-        <h3 className="text-lg">Descripcion del producto</h3>
-        <p className="text-gray-600 text-sm font-light tracking-widest leading-normal mt-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus
-          accusantium possimus impedit, iure tempore sint quo sequi quisquam
-          tempora. Blanditiis et voluptatum dignissimos voluptatibus odio eos
-          magnam cum error ducimus?
-        </p>
-      </div>
+      <SanitizeHTML
+        tag="p"
+        className="text-gray-900 text-sm font-light tracking-widest leading-relaxed line-clamp-5">
+        {info.desciption}
+      </SanitizeHTML>
 
       <div className="flex items-center gap-3">
         <SelectorQuantity
