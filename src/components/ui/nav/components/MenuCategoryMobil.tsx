@@ -35,7 +35,7 @@ const MenuCategoryMobil = ({
                     <li key={category.id} className="">
                       <Link
                         onClick={() => setOpenMenuMobil(false)}
-                        href={`/collections/${category.title}`}
+                        href={`/collections/${category.handle}`}
                         className="w-full inline-flex space-x-2 items-center py-3 transition ease-linear duration-150 text-gray-700 pl-1">
                         {category.title}
                       </Link>

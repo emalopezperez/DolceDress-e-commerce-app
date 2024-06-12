@@ -9,7 +9,7 @@ export interface Product {
   created_at?: string;
   handle?: string;
   updated_at: string;
-  compare_at_price:number;
+  compare_price:number;
   published_at: string;
   template_suffix: null | string;
   published_scope: string;
