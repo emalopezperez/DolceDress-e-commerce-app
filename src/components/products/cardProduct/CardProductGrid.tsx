@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Link } from "next-view-transitions";
 import Image from "next/image";
 import { placeholderImage } from "@/helpers/placeholderImage";
-
 import LikeButton from "@/components/ui/buttons/likeButton/LikeButton";
 import { truncateToWords } from "@/helpers/fcTruncateToTwoWords";
 import { Product } from "@/models/Product";
@@ -23,7 +22,7 @@ const CardProductGrid = ({ product }: PropsCardProduct) => {
       key={product.id}
       className="overflow-hidden rounded-md fade-in  p-2 shadow-md  ">
       <div className="relative">
-        <Link href={`/product/${product.id}`}>
+        <Link href={`/product/${product.handle}?id=${product.id}`}>
           <Image
             src={displayImage}
             width={500}
@@ -40,7 +39,7 @@ const CardProductGrid = ({ product }: PropsCardProduct) => {
           <LikeButton like={like} setLike={setLike} />
         </div>
 
-        {product.compare_at_price && (
+        {product.compare_price && (
           <div className="absolute top-[10px]  right-[18px] lg:right-4 bg-green-300 p-1 px-2 text-white rounded-lg text-sm">
             <span>Sale</span>
           </div>
@@ -54,9 +53,9 @@ const CardProductGrid = ({ product }: PropsCardProduct) => {
           </h3>
         </Link>
         <div className="flex justify-between items-center">
-          {product.compare_at_price && (
+          {product.compare_price && (
             <span className="text-[12px] text-gray-500 line-through font-light">
-              ${product.compare_at_price} UYU
+              ${product.compare_price} UYU
             </span>
           )}
 

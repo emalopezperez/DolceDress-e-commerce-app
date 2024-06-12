@@ -38,7 +38,7 @@ export function MenuCategory({ categories }: PropsMenuCategory) {
                 <ListItem
                   key={category.id}
                   title={category.title}
-                  href={`/collections/${category.title}`}>
+                  href={`/collections/${category.handle}`}>
                   descripcion
                 </ListItem>
               ))}

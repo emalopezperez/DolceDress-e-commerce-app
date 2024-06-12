@@ -54,14 +54,14 @@ const DetailProduct = ({ info, variants }: PropsDetailProduct) => {
 
       <div className="flex justify-between items-center">
         <div className="flex  items-center gap-3">
-          {selectedVariant.compare_at_price && (
+          {info.compare_price && (
             <span className="text-[12px] text-gray-500 line-through font-light">
-              ${selectedVariant.compare_at_price}
+              ${info.compare_price}
             </span>
           )}
 
           <span className="text-md text-gray-600 font-light">
-            ${selectedVariant.price} UYU
+            ${info.price} UYU
           </span>
         </div>
 

@@ -6,20 +6,44 @@ import SliderProduct from "@/components/product/sliderProduct/SliderProduct";
 import CarouselProducts from "@/components/ui/carouselProducts/CarouselProducts";
 import Container from "@/components/ui/container/Container";
 import { getProduct, getProducts } from "@/services/shopify/products";
+import { notFound } from "next/navigation";
 
 interface PropsProduct {
-  params: {
-    slug: string;
+  searchParams: {
+    id: string;
   };
 }
 
-export default async function ProductPage({ params }: PropsProduct) {
-  const { slug } = params;
+export async function generateMetadata({ searchParams }: PropsProduct) {
+  const { id } = searchParams;
+  const products = await getProducts(id);
+  const product = products[0];
 
-  const product = await getProduct(slug);
+  if (!product) {
+    notFound();
+  }
+
+  return {
+    title: `DolceDress | $ ${product.title}`,
+    description: product.description,
+    keywords: product.tags,
+    openGraph: {
+      images: [product.image],
+    },
+  };
+}
+
+export default async function ProductPage({ searchParams }: PropsProduct) {
+  const { id } = searchParams;
+
+  const product = await getProduct(id);
   const products = await getProducts();
 
   const variants = product.variants;
+
+  if (!product) {
+    notFound();
+  }
 
   return (
     <div className="lg:pt-24 pt-16 ">

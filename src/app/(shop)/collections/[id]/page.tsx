@@ -1,8 +1,12 @@
 import Container from "@/components/ui/container/Container";
 import Titles from "@/components/ui/titles/Titles";
-import { getProducts } from "@/services/shopify/products";
-import { Product } from "@/models/Product";
 import ProductsGrid from "@/components/products/productsGrid/ProductsGrid";
+import { notFound } from "next/navigation";
+import {
+  getCollectionProducts,
+  getCollections,
+} from "@/services/shopify/collections";
+import { Collection } from "@/models/Collection";
 
 interface PropsCategory {
   params: {
@@ -13,17 +17,23 @@ interface PropsCategory {
 export default async function CollectionPage({ params }: PropsCategory) {
   const { id } = params;
 
-  const products = await getProducts();
+  const collections = await getCollections();
 
-  const filtered = products.filter(
-    (product: Product) => product.product_type === id
+  const selectedCollectionId = collections.find(
+    (collection: Collection) => collection.handle === id
   );
+
+  const products = await getCollectionProducts(selectedCollectionId.id);
+
+  if (!products) {
+    notFound();
+  }
 
   return (
     <Container>
       <Titles name={id} />
 
-      <ProductsGrid products={filtered} />
+      <ProductsGrid products={products} />
     </Container>
   );
 }

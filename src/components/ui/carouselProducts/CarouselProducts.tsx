@@ -25,7 +25,7 @@ const CarouselProducts = ({ products }: PropsCarouselProducts) => {
         }),
       ]}
       opts={{
-        align: "start",
+        align: "center",
         loop: true,
       }}
       className="w-full ">

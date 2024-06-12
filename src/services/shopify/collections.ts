@@ -9,7 +9,7 @@ export const getCollections = async () => {
       }),
     });
     const { smart_collections } = await response.json();
-    
+
     const transformedCollections = smart_collections.map((collection: any) => {
       return {
         id: collection.id,
@@ -17,23 +17,55 @@ export const getCollections = async () => {
         handle: collection.handle,
       };
     });
+
     return transformedCollections;
   } catch (error) {
     console.log(error);
   }
 };
 
-
 export const getCollectionProducts = async (id: string) => {
   try {
     const response = await fetch(shopifyUrls.collections.products(id), {
       headers: new Headers({
-        'X-Shopify-Access-Token': env.SHOPIFY_TOKEN
+        "X-Shopify-Access-Token": env.SHOPIFY_TOKEN,
+      }),
+    });
+    const data = await response.json();
+
+    const productsWithCompleteData = await Promise.all(
+      data.products.map(async (product: any) => {
+        const additionalDataResponse = await fetch(
+          shopifyUrls.collections.additionalData(product.id),
+          {
+            headers: new Headers({
+              "X-Shopify-Access-Token": env.SHOPIFY_TOKEN,
+            }),
+          }
+        );
+        const { product: additionalProductData } =
+          await additionalDataResponse.json();
+
+        return {
+          id: additionalProductData.id,
+          title: additionalProductData.title,
+          description: additionalProductData.body_html,
+          images: additionalProductData.images,
+          image: additionalProductData.images,
+          variants: additionalProductData.variants,
+          handle: additionalProductData.handle,
+          tags: additionalProductData.tags,
+          options: additionalProductData.options,
+          product_type: additionalProductData.product_type,
+          price: additionalProductData.variants[0].price,
+          compare_price: additionalProductData.variants[0].compare_at_price,
+        };
       })
-    })
-    const { products } = await response.json()
-    return products
+    );
+
+    return productsWithCompleteData;
   } catch (error) {
-    console.log(error)
+    console.error("Error fetching collection products:", error);
+    throw new Error("Error fetching collection products");
   }
-}
+};
