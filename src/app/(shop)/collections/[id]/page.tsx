@@ -53,13 +53,6 @@ export default async function CollectionPage({ params }: PropsCategory) {
     notFound();
   }
 
-  // Filter out "jeans" and "pantalones" categories
-  const filteredCollections = collections.filter(
-    (collection) =>
-      collection.handle !== "jeans" &&
-      collection.handle !== "pantalones"
-  );
-
   return (
     <div className="lg:pt-24 pt-16 pb-16 lg:pb-24">
       <Container>
@@ -89,8 +82,9 @@ export default async function CollectionPage({ params }: PropsCategory) {
             {selectedCollection.title}
           </h1>
           <p className="text-lg text-gray-600 font-light max-w-2xl">
-            Descubre nuestra selección exclusiva de {selectedCollection.title.toLowerCase()}.
-            Cada pieza está diseñada para combinar elegancia atemporal con calidad superior.
+            Descubre nuestra selección exclusiva de{" "}
+            {selectedCollection.title.toLowerCase()}. Cada pieza está diseñada
+            para combinar elegancia atemporal con calidad superior.
           </p>
         </div>
 
@@ -108,7 +102,7 @@ export default async function CollectionPage({ params }: PropsCategory) {
               className="px-5 py-2.5 rounded-lg border-2 border-gray-200 bg-white text-gray-700 font-medium text-sm transition-all hover:border-gray-900 hover:text-gray-900">
               Todos los Productos
             </Link>
-            {filteredCollections.map((collection) => (
+            {products.map((collection) => (
               <Link
                 key={collection.id}
                 href={`/collections/${collection.handle}`}
@@ -126,7 +120,10 @@ export default async function CollectionPage({ params }: PropsCategory) {
         {/* Products Count */}
         <div className="mb-6 flex items-center justify-between">
           <p className="text-sm text-gray-600 font-light">
-            <span className="font-semibold text-gray-900">{products.length}</span> productos disponibles
+            <span className="font-semibold text-gray-900">
+              {products.length}
+            </span>{" "}
+            productos disponibles
           </p>
         </div>
 
