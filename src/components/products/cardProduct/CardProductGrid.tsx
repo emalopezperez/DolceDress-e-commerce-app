@@ -35,15 +35,6 @@ const CardProductGrid = ({ product }: PropsCardProduct) => {
             onMouseLeave={() => setDisplayImage(product.images[0].src)}
           />
         </Link>
-        <div className="absolute bottom-[20px] lg:bottom-[20px] right-[18px] lg:right-4">
-          <LikeButton like={like} setLike={setLike} />
-        </div>
-
-        {product.compare_price && (
-          <div className="absolute top-[10px]  right-[18px] lg:right-4 bg-green-300 p-1 px-2 text-white rounded-lg text-sm">
-            <span>Sale</span>
-          </div>
-        )}
       </div>
 
       <div className="mt-4 flex flex-col gap-2">
@@ -52,17 +43,6 @@ const CardProductGrid = ({ product }: PropsCardProduct) => {
             {truncateToWords(product.title, 4)}
           </h3>
         </Link>
-        <div className="flex justify-between items-center">
-          {product.compare_price && (
-            <span className="text-[12px] text-gray-500 line-through font-light">
-              ${product.compare_price} UYU
-            </span>
-          )}
-
-          <span className="text-sm text-gray-600 font-light">
-            ${product.price} UYU
-          </span>
-        </div>
       </div>
     </article>
   );

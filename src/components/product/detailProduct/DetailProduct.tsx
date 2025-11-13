@@ -1,10 +1,8 @@
 "use client";
 import { useState } from "react";
-import LikeButton from "../../ui/buttons/likeButton/LikeButton";
-import SelectorQuantity from "../../cart/selectorQuantity/SelectorQuantity";
-import { truncateToWords } from "@/helpers/fcTruncateToTwoWords";
 import { Product, VariantsProduct } from "@/models/Product";
 import { SanitizeHTML } from "@/components/ui/sanitizeHtml/SanitizeHtml";
+import { Ruler, Shirt, Shield, Package } from "lucide-react";
 
 interface PropsDetailProduct {
   info: Product;
@@ -12,139 +10,100 @@ interface PropsDetailProduct {
 }
 
 const DetailProduct = ({ info, variants }: PropsDetailProduct) => {
-  const [like, setLike] = useState(false);
-  const [selectedVariant, setSelectedVariant] = useState<VariantsProduct>(
-    variants[0]
-  );
+  const [selectedSize, setSelectedSize] = useState<string>("");
 
-  const uniqueColors = Array.from(
-    new Set(variants.map((variant) => variant.option2))
-  );
   const uniqueSizes = Array.from(
     new Set(variants.map((variant) => variant.option1))
   );
 
-  const handleSelectVariant = (color: string, size: string) => {
-    const variant = variants.find(
-      (v) => v.option2 === color && v.option1 === size
-    );
-    if (variant) {
-      setSelectedVariant(variant);
-    }
-  };
+  const features = [
+    { icon: Shirt, text: "Confección premium" },
+    { icon: Ruler, text: "Tallas disponibles" },
+    { icon: Shield, text: "Garantía de calidad" },
+    { icon: Package, text: "Envío a todo el país" },
+  ];
 
-  const isVariantAvailable = (color: string, size: string) => {
-    return variants.some(
-      (v) =>
-        v.option2 === color &&
-        v.option1 === size &&
-        v.inventory_quantity &&
-        v.inventory_quantity > 0
-    );
-  };
+  const tagsArray = info.tags
+    ? info.tags.split(",").map((tag) => tag.trim())
+    : [];
 
   return (
-    <div className="flex flex-col justify-between h-full md:gap-0 gap-4  pl-0 lg:pl-14">
-      <div className="flex justify-between items-center flex-wrap gap-2">
-        <h1 className="md:text-4xl tracking-tight-4 text-2xl antialiased">
-          {truncateToWords(info.title, 3)}
+    <div className="flex flex-col h-full gap-8 pl-0 lg:pl-14">
+      {/* Título */}
+      <div>
+        <h1 className="font-title text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 leading-tight">
+          {info.title}
         </h1>
-        <LikeButton like={like} setLike={setLike} />
-      </div>
-
-      <div className="flex justify-between items-center">
-        <div className="flex  items-center gap-3">
-          {info.compare_price && (
-            <span className="text-[12px] text-gray-500 line-through font-light">
-              ${info.compare_price}
-            </span>
-          )}
-
-          <span className="text-md text-gray-600 font-light">
-            ${info.price} UYU
-          </span>
-        </div>
-
-        <div className="border border-[#373f39] px-2 text-[13px] flex items-center shadow-sm py-1">
-          {
-            <span
-              className={`
-                ${
-                  selectedVariant.inventory_quantity > 0
-                    ? "text-[#373f39]"
-                    : "text-red-900"
-                } `}>
-              Stock{" "}
-              {selectedVariant.inventory_quantity > 0
-                ? selectedVariant.inventory_quantity
-                : 0}
-            </span>
-          }
-        </div>
-      </div>
-
-      <div>
-        <h3 className="text-lg">Colores</h3>
-        <div className="flex gap-3 mt-2">
-          {uniqueColors.map((color, index) => (
-            <button
-              key={index}
-              onClick={() =>
-                handleSelectVariant(color, selectedVariant.option1 || "")
-              }
-              className={`rounded-full p-1 h-8 px-3 text-sm flex justify-center items-center border border-gray-200 shadow-md ${
-                selectedVariant.option2 === color
-                  ? "bg-gray-800 text-white border-none"
-                  : ""
-              }`}>
-              <span>{color}</span>
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <h3 className="text-lg">Talles</h3>
-        <div className="flex gap-3 mt-2">
-          {uniqueSizes.map((size, index) => {
-            const available = isVariantAvailable(
-              selectedVariant.option2 || "",
-              size
-            );
-            return (
-              <button
+        {tagsArray.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {tagsArray.slice(0, 3).map((tag, index) => (
+              <span
                 key={index}
-                onClick={() =>
-                  handleSelectVariant(selectedVariant.option2 || "", size)
-                }
-                disabled={!available}
-                className={`p-1 px-4 rounded-sm border border-gray-200 shadow-md text-sm ${
-                  selectedVariant.option1 === size
-                    ? "bg-gray-800 text-white border-none"
-                    : ""
-                } ${!available ? "opacity-50 cursor-not-allowed" : ""}`}>
-                <span className="text-md">{size}</span>
+                className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Descripción */}
+      <div>
+        <h2 className="font-title text-lg font-semibold text-gray-900 mb-3">
+          Descripción
+        </h2>
+        <SanitizeHTML
+          tag="div"
+          className="text-gray-600 text-sm font-light leading-relaxed prose prose-sm max-w-none">
+          {info.desciption}
+        </SanitizeHTML>
+      </div>
+
+      {/* Tallas Disponibles */}
+      {uniqueSizes.length > 0 && (
+        <div>
+          <h2 className="font-title text-lg font-semibold text-gray-900 mb-3">
+            Tallas Disponibles
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {uniqueSizes.map((size) => (
+              <button
+                key={size}
+                onClick={() => setSelectedSize(size)}
+                className={`px-4 py-2 border rounded-lg text-sm font-medium transition-all duration-200 ${
+                  selectedSize === size
+                    ? "border-gray-900 bg-gray-900 text-white"
+                    : "border-gray-300 bg-white text-gray-700 hover:border-gray-400"
+                }`}>
+                {size}
               </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Características */}
+      <div>
+        <h2 className="font-title text-lg font-semibold text-gray-900 mb-4">
+          Características
+        </h2>
+        <div className="grid grid-cols-2 gap-4">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <div
+                key={index}
+                className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-white" strokeWidth={1.5} />
+                </div>
+                <span className="text-sm font-light text-gray-700">
+                  {feature.text}
+                </span>
+              </div>
             );
           })}
         </div>
-      </div>
-
-      <SanitizeHTML
-        tag="p"
-        className="text-gray-900 text-sm font-light tracking-widest leading-relaxed line-clamp-5">
-        {info.desciption}
-      </SanitizeHTML>
-
-      <div className="flex items-center gap-3">
-        <SelectorQuantity
-          quantity={1}
-          setQuantity={() => {}}
-          stock={selectedVariant.inventory_quantity}
-        />
-        <button className="flex items-center justify-center rounded-md border border-transparent bg-[#373f39]/90 py-3 text-base font-medium text-white hover:bg-[#373f39]/80 w-full shadow-md">
-          Agregar al carrito
-        </button>
       </div>
     </div>
   );

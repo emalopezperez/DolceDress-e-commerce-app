@@ -7,6 +7,8 @@ import CarouselProducts from "@/components/ui/carouselProducts/CarouselProducts"
 import Container from "@/components/ui/container/Container";
 import { getProduct, getProducts } from "@/services/shopify/products";
 import { notFound } from "next/navigation";
+import Link from "next/link";
+import { ChevronRight, Home } from "lucide-react";
 
 interface PropsProduct {
   searchParams: {
@@ -46,9 +48,29 @@ export default async function ProductPage({ searchParams }: PropsProduct) {
   }
 
   return (
-    <div className="lg:pt-24 pt-16 ">
+    <div className="lg:pt-24 pt-16 pb-16 lg:pb-24">
       <Container>
         <div className=" mx-0 md:mx-0 lg:mx-0 xl:mx-32">
+          {/* Breadcrumb */}
+          <nav className="mb-8 flex items-center gap-2 text-sm">
+            <Link
+              href="/"
+              className="group inline-flex items-center gap-1.5 text-gray-500 hover:text-gray-900 transition-colors">
+              <Home className="w-4 h-4" />
+              <span className="font-light">Inicio</span>
+            </Link>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <Link
+              href="/collections"
+              className="text-gray-500 hover:text-gray-900 transition-colors font-light">
+              Productos
+            </Link>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <span className="text-gray-900 font-medium truncate max-w-xs">
+              {product.title}
+            </span>
+          </nav>
+
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-14 lg:gap-0 ">
             <div className="lg:col-span-3 col-span-1">
               <SliderProduct images={product.images} title={product.title} />

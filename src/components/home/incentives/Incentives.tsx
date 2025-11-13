@@ -1,58 +1,86 @@
+import { Scissors, Sparkles, Award, Clock } from "lucide-react";
+
 const incentives = [
   {
-    name: "Free shipping",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce/icons/icon-shipping-simple.svg",
+    name: "Confección a Medida",
+    icon: Scissors,
     description:
-      "It's not actually free we just price it into the products. Someone's paying for it, and it's not us.",
+      "Cada traje es confeccionado con precisión artesanal para adaptarse perfectamente a tu figura y estilo personal.",
   },
   {
-    name: "10-year warranty",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce/icons/icon-warranty-simple.svg",
+    name: "Calidad Premium",
+    icon: Award,
     description:
-      "If it breaks in the first 10 years we'll replace it. After that you're on your own though.",
+      "Utilizamos únicamente las mejores telas y materiales importados, garantizando durabilidad y elegancia excepcional.",
   },
   {
-    name: "Exchanges",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce/icons/icon-exchange-simple.svg",
+    name: "Atención Personalizada",
+    icon: Sparkles,
     description:
-      "If you don't like it, trade it to one of your friends for something of theirs. Don't send it here though.",
+      "Nuestros asesores de estilo te guiarán en cada paso para encontrar el look perfecto para tu ocasión especial.",
+  },
+  {
+    name: "Entrega Puntual",
+    icon: Clock,
+    description:
+      "Respetamos tu tiempo. Garantizamos la entrega de tu traje en la fecha acordada para que no te preocupes por nada.",
   },
 ];
 
 export default function Incentives() {
   return (
-    <div className="w-full ">
-      <div className="mx-auto max-w-2xl px-6 lg:max-w-none bg-slate-50 py-6 shadow-sm">
-        <div className="max-w-3xl">
-          <h2 className="text-4xl font-bold tracking-tight text-gray-900">
-            We built our business on customer service
+    <div className="w-full bg-gradient-to-br from-slate-50 via-white to-slate-50">
+      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-20">
+        {/* Header Section */}
+        <div className="mx-auto max-w-3xl text-center mb-16">
+          <h2 className="font-title text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-6">
+            Excelencia en Cada Detalle
           </h2>
-          <p className="mt-4 text-gray-400 text-sm">
-            At the beginning at least, but then we realized we could make a lot
-            more money if we kinda stopped caring about that. Our new strategy
-            is to write a bunch of things that look really good in the
-            headlines.
+          <p className="text-lg text-gray-600 font-light leading-relaxed">
+            Nos dedicamos a ofrecerte una experiencia incomparable, donde la elegancia
+            y el servicio excepcional se encuentran en cada prenda.
           </p>
         </div>
-        <div className="mt-16 grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
-          {incentives.map((incentive) => (
-            <div key={incentive.name} className="sm:flex lg:block">
-              <div className="sm:flex-shrink-0">
-                <img className="h-16 w-16" src={incentive.imageSrc} alt="" />
-              </div>
-              <div className="mt-4 sm:ml-6 sm:mt-0 lg:ml-0 lg:mt-6">
-                <h3 className="text-sm font-medium text-gray-900">
+
+        {/* Incentives Grid */}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {incentives.map((incentive) => {
+            const Icon = incentive.icon;
+            return (
+              <div
+                key={incentive.name}
+                className="group relative bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200"
+              >
+                {/* Icon */}
+                <div className="mb-6">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-gray-900 to-gray-700 text-white group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-7 h-7" strokeWidth={1.5} />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <h3 className="font-title text-xl font-semibold text-gray-900 mb-3">
                   {incentive.name}
                 </h3>
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="text-sm text-gray-600 leading-relaxed font-light">
                   {incentive.description}
                 </p>
+
+                {/* Decorative element */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-gray-50 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        {/* Optional CTA Section */}
+        <div className="mt-16 text-center">
+          <p className="text-sm text-gray-500 font-light">
+            ¿Tienes dudas?
+            <a href="/contacto" className="ml-2 font-medium text-gray-900 hover:text-gray-700 underline underline-offset-4 transition-colors">
+              Contáctanos
+            </a>
+          </p>
         </div>
       </div>
     </div>

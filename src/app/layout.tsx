@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./styles/globals.css";
-import { titleFont } from "@/config/fonts";
+import { titleFont, bodyFont } from "@/config/fonts";
 import { ViewTransitions } from "next-view-transitions";
 
 export const metadata: Metadata = {
@@ -15,8 +15,8 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="es">
-        <body className={titleFont.className}>
+      <html lang="es" className={`${titleFont.variable} ${bodyFont.variable}`}>
+        <body className="font-body">
           <main className="">{children}</main>
         </body>
       </html>

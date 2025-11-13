@@ -1,5 +1,7 @@
+"use client";
 import { PropsMenuMobil } from "../interfaces/nav";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Accordion,
   AccordionContent,
@@ -14,6 +16,15 @@ const MenuCategoryMobil = ({
   categories,
   setOpenMenuMobil,
 }: PropsMenuMobil) => {
+  const pathname = usePathname();
+
+  // Filter out "jeans" and "pantalones" categories
+  const filteredCategories = categories.filter(
+    (category) =>
+      category.handle !== "jeans" &&
+      category.handle !== "pantalones"
+  );
+
   return (
     <ul className="space-y-1">
       {menuItems.map((item) =>
@@ -31,12 +42,28 @@ const MenuCategoryMobil = ({
 
               <AccordionContent className="animate-none flex flex-col pl-6">
                 <ul className="">
-                  {categories.map((category) => (
+                  <li key="all-products" className="">
+                    <Link
+                      onClick={() => setOpenMenuMobil(false)}
+                      href="/collections"
+                      className={`w-full inline-flex space-x-2 items-center py-3 transition ease-linear duration-150 pl-1 rounded-md ${
+                        pathname === "/collections"
+                          ? "bg-gray-900 text-white font-semibold"
+                          : "text-gray-700"
+                      }`}>
+                      Productos
+                    </Link>
+                  </li>
+                  {filteredCategories.map((category) => (
                     <li key={category.id} className="">
                       <Link
                         onClick={() => setOpenMenuMobil(false)}
                         href={`/collections/${category.handle}`}
-                        className="w-full inline-flex space-x-2 items-center py-3 transition ease-linear duration-150 text-gray-700 pl-1">
+                        className={`w-full inline-flex space-x-2 items-center py-3 transition ease-linear duration-150 pl-1 rounded-md ${
+                          pathname === `/collections/${category.handle}`
+                            ? "bg-gray-900 text-white font-semibold"
+                            : "text-gray-700"
+                        }`}>
                         {category.title}
                       </Link>
                     </li>

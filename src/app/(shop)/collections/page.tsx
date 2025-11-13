@@ -1,57 +1,18 @@
 import Container from "@/components/ui/container/Container";
 import ProductsGrid from "@/components/products/productsGrid/ProductsGrid";
-import { notFound } from "next/navigation";
-import {
-  getCollectionProducts,
-  getCollections,
-} from "@/services/shopify/collections";
-import { Collection } from "@/models/Collection";
+import { getProducts } from "@/services/shopify/products";
+import { getCollections } from "@/services/shopify/collections";
 import Link from "next/link";
 import { ChevronRight, Home, SlidersHorizontal } from "lucide-react";
 
-interface PropsCategory {
-  params: {
-    id: string;
-  };
-}
+export const metadata = {
+  title: "DolceDress | Todos los Productos",
+  description: "Explora nuestra colección completa de moda masculina. Camisas, camperas, trajes y accesorios de calidad premium.",
+};
 
-export async function generateMetadata({ params }: PropsCategory) {
-  const { id } = params;
+export default async function CollectionsPage() {
+  const products = await getProducts();
   const collections = await getCollections();
-  const selectedCollection = collections.find(
-    (collection: Collection) => collection.handle === id
-  );
-
-  if (!selectedCollection) {
-    return {
-      title: "DolceDress | Categoría no encontrada",
-    };
-  }
-
-  return {
-    title: `DolceDress | ${selectedCollection.title}`,
-    description: `Explora nuestra colección de ${selectedCollection.title}. Moda masculina de calidad premium.`,
-  };
-}
-
-export default async function CollectionPage({ params }: PropsCategory) {
-  const { id } = params;
-
-  const collections = await getCollections();
-
-  const selectedCollection = collections.find(
-    (collection: Collection) => collection.handle === id
-  );
-
-  if (!selectedCollection) {
-    notFound();
-  }
-
-  const products = await getCollectionProducts(selectedCollection.id);
-
-  if (!products) {
-    notFound();
-  }
 
   // Filter out "jeans" and "pantalones" categories
   const filteredCollections = collections.filter(
@@ -72,25 +33,17 @@ export default async function CollectionPage({ params }: PropsCategory) {
             <span className="font-light">Inicio</span>
           </Link>
           <ChevronRight className="w-4 h-4 text-gray-400" />
-          <Link
-            href="/collections"
-            className="text-gray-500 hover:text-gray-900 transition-colors font-light">
-            Productos
-          </Link>
-          <ChevronRight className="w-4 h-4 text-gray-400" />
-          <span className="text-gray-900 font-medium">
-            {selectedCollection.title}
-          </span>
+          <span className="text-gray-900 font-medium">Productos</span>
         </nav>
 
         {/* Header */}
         <div className="mb-12">
           <h1 className="font-title text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-            {selectedCollection.title}
+            Nuestra Colección
           </h1>
           <p className="text-lg text-gray-600 font-light max-w-2xl">
-            Descubre nuestra selección exclusiva de {selectedCollection.title.toLowerCase()}.
-            Cada pieza está diseñada para combinar elegancia atemporal con calidad superior.
+            Descubre piezas excepcionales de moda masculina. Cada prenda está
+            diseñada para combinar elegancia atemporal con calidad superior.
           </p>
         </div>
 
@@ -105,18 +58,14 @@ export default async function CollectionPage({ params }: PropsCategory) {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/collections"
-              className="px-5 py-2.5 rounded-lg border-2 border-gray-200 bg-white text-gray-700 font-medium text-sm transition-all hover:border-gray-900 hover:text-gray-900">
+              className="px-5 py-2.5 rounded-lg border-2 border-gray-900 bg-gray-900 text-white font-medium text-sm transition-all hover:bg-gray-800 hover:border-gray-800">
               Todos los Productos
             </Link>
             {filteredCollections.map((collection) => (
               <Link
                 key={collection.id}
                 href={`/collections/${collection.handle}`}
-                className={`px-5 py-2.5 rounded-lg border-2 font-medium text-sm transition-all ${
-                  collection.handle === id
-                    ? "border-gray-900 bg-gray-900 text-white"
-                    : "border-gray-200 bg-white text-gray-700 hover:border-gray-900 hover:text-gray-900"
-                }`}>
+                className="px-5 py-2.5 rounded-lg border-2 border-gray-200 bg-white text-gray-700 font-medium text-sm transition-all hover:border-gray-900 hover:text-gray-900">
                 {collection.title}
               </Link>
             ))}

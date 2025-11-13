@@ -19,16 +19,16 @@ const menuItems = [
     title: "Tienda",
     subMenu: true,
   },
-
-  {
-    id: 2,
-    path: "/contacto",
-    title: "Contacto",
-  },
   {
     id: 3,
     path: "/about",
     title: "Nosotros",
+  },
+
+  {
+    id: 2,
+    path: "/contact",
+    title: "Contacto",
   },
 ];
 
@@ -68,9 +68,6 @@ export default function Header({ categories }: PropsNav) {
             <div className="flex-shrink-0">
               <Logo />
             </div>
-            <div className="flex sm:hidden pr-1">
-              <ButtonCart openSideMenu={openSideMenu} />
-            </div>
           </div>
 
           <div className=" sm:flex hidden  ">
@@ -79,21 +76,6 @@ export default function Header({ categories }: PropsNav) {
 
           <div className="sm:flex hidden pr-10">
             <MenuCategory categories={categories} />
-          </div>
-
-          <div className="gap-6 items-center hidden  sm:flex">
-            <Link href="/search" className="text-gray-700">
-              <Search className="w-5 h-5" />
-            </Link>
-            <button onClick={openSideMenu}>
-              <div className="text-gray-700 relative hover:text-gray-400">
-                <ShoppingCart className=" w-5 h-5 " />
-                <span className="absolute -top-3 text-[10px] ml-2 bg-red-900 rounded-full px-1 text-white">
-                  3
-                </span>
-              </div>
-            </button>
-            <Profile />
           </div>
         </div>
       </div>
