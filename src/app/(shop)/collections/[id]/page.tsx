@@ -102,7 +102,7 @@ export default async function CollectionPage({ params }: PropsCategory) {
               className="px-5 py-2.5 rounded-lg border-2 border-gray-200 bg-white text-gray-700 font-medium text-sm transition-all hover:border-gray-900 hover:text-gray-900">
               Todos los Productos
             </Link>
-            {products.map((collection) => (
+            {collections.map((collection: Collection) => (
               <Link
                 key={collection.id}
                 href={`/collections/${collection.handle}`}

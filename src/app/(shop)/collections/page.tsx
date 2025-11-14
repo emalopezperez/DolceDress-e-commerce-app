@@ -4,22 +4,17 @@ import { getProducts } from "@/services/shopify/products";
 import { getCollections } from "@/services/shopify/collections";
 import Link from "next/link";
 import { ChevronRight, Home, SlidersHorizontal } from "lucide-react";
+import { Collection } from "@/models/Collection";
 
 export const metadata = {
   title: "DolceDress | Todos los Productos",
-  description: "Explora nuestra colección completa de moda masculina. Camisas, camperas, trajes y accesorios de calidad premium.",
+  description:
+    "Explora nuestra colección completa de moda masculina. Camisas, camperas, trajes y accesorios de calidad premium.",
 };
 
 export default async function CollectionsPage() {
   const products = await getProducts();
   const collections = await getCollections();
-
-  // Filter out "jeans" and "pantalones" categories
-  const filteredCollections = collections.filter(
-    (collection) =>
-      collection.handle !== "jeans" &&
-      collection.handle !== "pantalones"
-  );
 
   return (
     <div className="lg:pt-24 pt-16 pb-16 lg:pb-24">
@@ -61,7 +56,7 @@ export default async function CollectionsPage() {
               className="px-5 py-2.5 rounded-lg border-2 border-gray-900 bg-gray-900 text-white font-medium text-sm transition-all hover:bg-gray-800 hover:border-gray-800">
               Todos los Productos
             </Link>
-            {filteredCollections.map((collection) => (
+            {collections.map((collection: Collection) => (
               <Link
                 key={collection.id}
                 href={`/collections/${collection.handle}`}
@@ -75,7 +70,10 @@ export default async function CollectionsPage() {
         {/* Products Count */}
         <div className="mb-6 flex items-center justify-between">
           <p className="text-sm text-gray-600 font-light">
-            <span className="font-semibold text-gray-900">{products.length}</span> productos disponibles
+            <span className="font-semibold text-gray-900">
+              {products.length}
+            </span>{" "}
+            productos disponibles
           </p>
         </div>
 

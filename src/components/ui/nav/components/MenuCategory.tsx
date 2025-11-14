@@ -23,13 +23,6 @@ interface PropsMenuCategory {
 export function MenuCategory({ categories }: PropsMenuCategory) {
   const pathname = usePathname();
 
-  // Filter out "jeans" and "pantalones" categories
-  const filteredCategories = categories.filter(
-    (category) =>
-      category.handle !== "jeans" &&
-      category.handle !== "pantalones"
-  );
-
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -52,7 +45,7 @@ export function MenuCategory({ categories }: PropsMenuCategory) {
                 isActive={pathname === "/collections"}>
                 Ver todos los productos
               </ListItem>
-              {filteredCategories.map((category) => (
+              {categories.map((category) => (
                 <ListItem
                   key={category.id}
                   title={category.title}

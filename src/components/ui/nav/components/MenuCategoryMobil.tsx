@@ -18,13 +18,6 @@ const MenuCategoryMobil = ({
 }: PropsMenuMobil) => {
   const pathname = usePathname();
 
-  // Filter out "jeans" and "pantalones" categories
-  const filteredCategories = categories.filter(
-    (category) =>
-      category.handle !== "jeans" &&
-      category.handle !== "pantalones"
-  );
-
   return (
     <ul className="space-y-1">
       {menuItems.map((item) =>
@@ -54,7 +47,7 @@ const MenuCategoryMobil = ({
                       Productos
                     </Link>
                   </li>
-                  {filteredCategories.map((category) => (
+                  {categories.map((category) => (
                     <li key={category.id} className="">
                       <Link
                         onClick={() => setOpenMenuMobil(false)}
